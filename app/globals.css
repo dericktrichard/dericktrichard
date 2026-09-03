@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: dark;
+  --background: #080808;
+  --foreground: #eeeeea;
+  --muted: #a3a39b;
+  --border: #2a2a27;
+  --surface: #11110f;
+  --surface-raised: #191916;
+  --accent: #d8ff62;
+  --accent-foreground: #111407;
+  --focus-ring: #d8ff62;
+  --toggle-track: #151512;
+  --toggle-indicator: #eeeeea;
+  --toggle-indicator-foreground: #080808;
+  --toggle-inactive: #85857c;
+}
+
+:root.light {
+  color-scheme: light;
+  --background: #f7f7f3;
+  --foreground: #161614;
+  --muted: #67675f;
+  --border: #d9d9d0;
+  --surface: #ffffff;
+  --surface-raised: #eeeee8;
+  --accent: #1f4f3a;
+  --accent-foreground: #f7f7f3;
+  --focus-ring: #1f4f3a;
+  --toggle-track: #e7e7df;
+  --toggle-indicator: #161614;
+  --toggle-indicator-foreground: #f7f7f3;
+  --toggle-inactive: #74746b;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
 }
