@@ -1,35 +1,6 @@
 import Link from "next/link";
 import { Navigation } from "./components/navigation";
-
-const projects = [
-  {
-    number: "01",
-    name: "PSO-VRP",
-    type: "Optimisation / Data",
-    description:
-      "A vehicle-routing project exploring particle swarm optimisation for logistics.",
-    stack: "React · TypeScript · Optimisation",
-    className: "md:col-span-2",
-  },
-  {
-    number: "02",
-    name: "SENTRY",
-    type: "AI / Robotics",
-    description:
-      "An exploration of grounded generative AI and human-robot interaction.",
-    stack: "AI · Robotics · HRI",
-    className: "",
-  },
-  {
-    number: "03",
-    name: "ZYSA",
-    type: "Mobile / Software",
-    description:
-      "An Android application for employee performance evaluation.",
-    stack: "Kotlin · Android",
-    className: "",
-  },
-];
+import { ProjectImage } from "./components/project-image";
 
 const experience = [
   {
@@ -207,74 +178,151 @@ export default function Home() {
         </section>
 
         {/* WORK */}
-        <section id="work" className="mx-auto w-full max-w-[118rem] px-page">
-          <div className="border-t border-border py-section">
-            <div className="flex items-end justify-between gap-8">
-              <div>
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted">
-                  02 / Selected work
-                </p>
+        <section
+          id="work"
+          className="mx-auto max-w-[100rem] px-page py-section"
+        >
+          <div className="mb-16 flex items-end justify-between gap-8">
+            <div>
+              <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                Selected work
+              </p>
 
-                <h2 className="mt-5 text-[clamp(3rem,7vw,8rem)] font-semibold leading-[0.82] tracking-[-0.06em]">
-                  Work.
-                </h2>
+              <h2 className="max-w-3xl text-[clamp(2.5rem,6vw,6rem)] font-medium leading-[0.92] tracking-[-0.055em]">
+                Proof before
+                <br />
+                decoration.
+              </h2>
+            </div>
+
+            <span className="hidden font-mono text-xs text-muted sm:block">
+              01 — 03
+            </span>
+          </div>
+
+          <div className="space-y-24">
+            {/* SENTRY */}
+            <article className="group">
+              <div className="mb-6 flex items-baseline justify-between gap-6">
+                <div>
+                  <p className="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                    AI · Robotics · HRI
+                  </p>
+
+                  <h3 className="text-[clamp(2rem,4vw,4rem)] font-medium tracking-[-0.04em]">
+                    SENTRY
+                  </h3>
+                </div>
+
+                <span className="font-mono text-xs text-muted">01</span>
               </div>
 
-              <p className="hidden max-w-xs text-sm leading-6 text-muted md:block">
-                Projects across analytics, software development and applied
-                artificial intelligence.
-              </p>
-            </div>
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.34fr)] lg:items-end">
+                <ProjectImage
+                  src="/projects/sentry/sentry.png"
+                  alt="SENTRY system interface"
+                  priority
+                />
 
-            <div className="mt-16 grid gap-px bg-border md:grid-cols-2">
-              {projects.map((project) => (
-                <article
-                  key={project.number}
-                  className={`group relative overflow-hidden bg-background ${project.className}`}
-                >
-                  <div className="relative aspect-16/10 overflow-hidden bg-foreground/[0.035]">
-                    <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transition-none">
-                      <div className="absolute inset-[12%] border border-border" />
-                      <div className="absolute left-[18%] top-[30%] h-px w-[64%] -rotate-12 bg-foreground/40" />
-                      <div className="absolute left-[28%] top-[57%] h-px w-[45%] rotate-17 bg-foreground/25" />
-                      <div className="absolute left-[24%] top-[23%] h-2 w-2 rounded-full bg-foreground" />
-                      <div className="absolute right-[24%] top-[62%] h-3 w-3 rounded-full bg-foreground/70" />
-                    </div>
+                <div className="max-w-sm">
+                  <p className="text-lg leading-relaxed text-muted">
+                    A research prototype exploring grounded generative AI,
+                    human-robot interaction, and a RAG-based system for Pepper.
+                  </p>
 
-                    <span className="absolute left-5 top-5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                      {project.type}
-                    </span>
+                  <p className="mt-6 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                    FastAPI · RAG · PostgreSQL · Android
+                  </p>
+                </div>
+              </div>
+            </article>
 
-                    <span className="absolute right-5 top-5 font-mono text-[0.6rem] text-muted">
-                      {project.number}
-                    </span>
-                  </div>
+            {/* PSO */}
+            <article className="group">
+              <div className="mb-6 flex items-baseline justify-between gap-6">
+                <div>
+                  <p className="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                    Optimisation · Data
+                  </p>
 
-                  <div className="grid gap-8 p-6 md:grid-cols-[1fr_auto] md:p-8">
-                    <div>
-                      <h3 className="text-[clamp(2rem,4vw,4.5rem)] font-semibold leading-[0.88] tracking-[-0.045em]">
-                        {project.name}
-                      </h3>
+                  <h3 className="text-[clamp(2rem,4vw,4rem)] font-medium tracking-[-0.04em]">
+                    PSO Logistics Optimizer
+                  </h3>
+                </div>
 
-                      <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
-                        {project.description}
-                      </p>
-                    </div>
+                <span className="font-mono text-xs text-muted">02</span>
+              </div>
 
-                    <p className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-muted md:max-w-40 md:text-right">
-                      {project.stack}
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.34fr)] lg:items-end">
+                <div className="flex aspect-16/10 items-center justify-center bg-surface">
+                  <div className="text-center">
+                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                      Visual documentation
+                    </p>
+
+                    <p className="mt-3 text-sm text-muted">
+                      Project interface coming into the portfolio
                     </p>
                   </div>
-                </article>
-              ))}
-            </div>
+                </div>
 
-            <p className="mt-6 max-w-xl text-xs leading-5 text-muted">
-              Project details will be expanded into individual case studies as
-              the work is documented and verified.
-            </p>
+                <div className="max-w-sm">
+                  <p className="text-lg leading-relaxed text-muted">
+                    An interactive exploration of Particle Swarm Optimization
+                    applied to logistics routing.
+                  </p>
+
+                  <p className="mt-6 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                    React · TypeScript · Optimisation
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            {/* ZYSA */}
+            <article className="group">
+              <div className="mb-6 flex items-baseline justify-between gap-6">
+                <div>
+                  <p className="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                    Mobile · Software
+                  </p>
+
+                  <h3 className="text-[clamp(2rem,4vw,4rem)] font-medium tracking-[-0.04em]">
+                    ZYSA
+                  </h3>
+                </div>
+
+                <span className="font-mono text-xs text-muted">03</span>
+              </div>
+
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.34fr)] lg:items-end">
+                <div className="flex aspect-16/10 items-center justify-center bg-surface">
+                  <div className="text-center">
+                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
+                      Visual documentation
+                    </p>
+
+                    <p className="mt-3 text-sm text-muted">
+                      Project interface coming into the portfolio
+                    </p>
+                  </div>
+                </div>
+
+                <div className="max-w-sm">
+                  <p className="text-lg leading-relaxed text-muted">
+                    An Android application developed for employee performance
+                    evaluation.
+                  </p>
+
+                  <p className="mt-6 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+                    Kotlin · Android
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
+
 
         {/* TECHNICAL */}
         <section className="mx-auto w-full max-w-[118rem] px-page">
