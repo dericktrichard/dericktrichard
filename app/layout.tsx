@@ -20,9 +20,17 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Derick Richard | Data & Software",
+  title: "Derick Richard | Software, Data & AI",
   description:
-    "Derick Richard, Computer Technology graduate specializing in Data Analytics, with a foundation in software development, AI, and digital systems.",
+    "Portfolio of Derick Richard, a Computer Technology graduate focused on data analytics, software development and AI.",
+  authors: [{ name: "Derick Richard" }],
+  keywords: [
+    "Derick Richard",
+    "Data Analytics",
+    "Software Development",
+    "Artificial Intelligence",
+    "Portfolio",
+  ],
 };
 
 export default function RootLayout({

@@ -18,7 +18,7 @@ export function ProjectImage({
         alt={alt}
         fill
         priority={priority}
-        sizes="(max-width: 768px) 100vw, 65vw"
+        sizes="(max-width: 1024px) 100vw, 65vw"
         className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
       />
 
