@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { Navigation } from "./components/navigation";
+import { ProjectCard } from "./components/project-card";
+import { projects } from "./data/projects";
 
 function ArrowIcon() {
   return (
@@ -11,9 +14,9 @@ function ArrowIcon() {
       className="h-3.5 w-3.5"
     >
       <path
-        d="M3 13L13 3M6 3H13V10"
+        d="M3 13 13 3M6 3h7v7"
         stroke="currentColor"
-        strokeWidth="1.25"
+        strokeWidth="1.2"
         strokeLinecap="square"
       />
     </svg>
@@ -78,8 +81,7 @@ function WhatsappIcon() {
       className="h-3.5 w-3.5"
     >
       <path
-        d="M20 11.7a8 8 0 0 1-11.9 7
-        L4 20l1.3-4A8 8 0 1 1 20 11.7Z"
+        d="M20 11.7a8 8 0 0 1-11.9 7L4 20l1.3-4A8 8 0 1 1 20 11.7Z"
         stroke="currentColor"
         strokeWidth="1.4"
       />
@@ -159,34 +161,10 @@ function IntelligenceIcon() {
         stroke="currentColor"
         strokeWidth="1.3"
       />
-      <circle
-        cx="5"
-        cy="7"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <circle
-        cx="19"
-        cy="7"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <circle
-        cx="5"
-        cy="17"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <circle
-        cx="19"
-        cy="17"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
+      <circle cx="5" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="19" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="5" cy="17" r="1.5" stroke="currentColor" strokeWidth="1.2" />
+      <circle cx="19" cy="17" r="1.5" stroke="currentColor" strokeWidth="1.2" />
       <path
         d="m6.3 7.8 3.2 2.6M17.7 7.8l-3.2 2.6M6.3 16.2l3.2-2.6M17.7 16.2l-3.2-2.6"
         stroke="currentColor"
@@ -304,12 +282,7 @@ function DataVisual() {
           strokeWidth="2"
         />
 
-        <circle
-          cx="250"
-          cy="250"
-          r="3"
-          fill="var(--accent)"
-        />
+        <circle cx="250" cy="250" r="3" fill="var(--accent)" />
       </svg>
 
       <div className="absolute left-[10%] top-[18%] font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
@@ -322,131 +295,6 @@ function DataVisual() {
     </div>
   );
 }
-
-function PsoVisual() {
-  return (
-    <div className="relative aspect-16/10 overflow-hidden bg-surface">
-      <svg
-        viewBox="0 0 800 500"
-        fill="none"
-        className="h-full w-full"
-        aria-hidden="true"
-      >
-        <g stroke="currentColor" strokeOpacity=".1">
-          <path d="M0 100h800M0 200h800M0 300h800M0 400h800" />
-          <path d="M100 0v500M200 0v500M300 0v500M400 0v500M500 0v500M600 0v500M700 0v500" />
-        </g>
-
-        <path
-          d="M90 370C180 325 175 180 285 215S380 380 475 300s105-170 225-125"
-          stroke="currentColor"
-          strokeOpacity=".3"
-          strokeWidth="2"
-        />
-
-        <path
-          d="M90 370C180 325 175 180 285 215S380 380 475 300s105-170 225-125"
-          stroke="var(--accent)"
-          strokeWidth="2"
-          strokeDasharray="8 12"
-          className="visual-orbit-slow"
-        />
-
-        <g fill="currentColor">
-          <circle cx="90" cy="370" r="6" />
-          <circle cx="180" cy="320" r="5" />
-          <circle cx="285" cy="215" r="6" />
-          <circle cx="380" cy="350" r="5" />
-          <circle cx="475" cy="300" r="6" />
-          <circle cx="590" cy="205" r="5" />
-          <circle cx="700" cy="175" r="7" fill="var(--accent)" />
-        </g>
-
-        <path
-          d="M90 420h610"
-          stroke="currentColor"
-          strokeOpacity=".18"
-        />
-      </svg>
-
-      <div className="absolute left-5 top-5 font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
-        Route optimisation
-      </div>
-
-      <div className="absolute bottom-5 right-5 font-mono text-[9px] uppercase tracking-[0.16em] text-accent">
-        PSO / 01
-      </div>
-    </div>
-  );
-}
-
-function SeiaVisual() {
-  return (
-    <div className="grid aspect-16/10 grid-cols-[1.35fr_.65fr] gap-2 overflow-hidden bg-surface">
-      <div className="relative overflow-hidden">
-        <Image
-          src="/projects/seia/seiahome.jpeg"
-          alt="SEIA application home screen"
-          fill
-          sizes="(max-width: 768px) 90vw, 55vw"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
-        />
-      </div>
-
-      <div className="grid grid-rows-2 gap-2">
-        <div className="relative overflow-hidden">
-          <Image
-            src="/projects/seia/seiaprofile.jpeg"
-            alt="SEIA application profile screen"
-            fill
-            sizes="(max-width: 768px) 30vw, 20vw"
-            className="object-cover"
-          />
-        </div>
-
-        <div className="relative overflow-hidden">
-          <Image
-            src="/projects/seia/seialogin.jpeg"
-            alt="SEIA application login screen"
-            fill
-            sizes="(max-width: 768px) 30vw, 20vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const projects = [
-  {
-    title: "SENTRY",
-    category: "Grounded AI / Cybersecurity",
-    year: "2025 / 2026",
-    description:
-      "A cybersecurity training system combining grounded generative AI, retrieval, analytics, Android and robotics.",
-    href: "https://github.com/SENTRY-Pepper/sentry-system",
-    visual: "sentry",
-  },
-  {
-    title: "PSO Logistics Optimizer",
-    category: "Optimisation / Data",
-    year: "2026",
-    description:
-      "An interactive Particle Swarm Optimization system for exploring logistics routing and constrained vehicle movement.",
-    href: "https://github.com/dericktrichard/pso-logistics-optimizer",
-    visual: "pso",
-  },
-  {
-    title: "SEIA",
-    category: "Product / Android",
-    year: "2025",
-    description:
-      "A social discovery concept for sharing places, experiences, costs and plans with other travellers and communities.",
-    href: "https://github.com/dericktrichard/SEIA",
-    visual: "seia",
-  },
-];
 
 const capabilities = [
   {
@@ -482,29 +330,35 @@ export default function Home() {
 
       <main id="main-content" className="site-content overflow-x-clip">
         {/* HERO */}
-        <section className="flex min-h-svh items-center px-page pb-12 pt-28">
-          <div className="mx-auto grid w-full max-w-[118rem] items-center gap-14 lg:grid-cols-[1.15fr_.85fr] lg:gap-8">
-            <div>
-              <div className="portfolio-reveal eyebrow">
+        <section
+          aria-labelledby="hero-title"
+          className="flex min-h-svh items-center px-page pb-10 pt-20"
+        >
+          <div className="mx-auto grid w-full max-w-[118rem] items-center gap-14 lg:grid-cols-[1.15fr_.85fr] lg:gap-4">
+            <div className="hero-copy">
+              <div className="portfolio-reveal hero-meta font-mono text-[0.52rem] uppercase tracking-[0.14em] text-muted">
                 Computer Technology · Data Analytics · Kenya
               </div>
 
-              <div className="mt-8 overflow-hidden">
-                <h1 className="display-title portfolio-reveal portfolio-reveal-delay-1 max-w-5xl">
-                  Derick
-                  <br />
-                  <span className="text-muted">Richard</span>
+              <div className="mt-5 overflow-hidden">
+                <h1
+                  id="hero-title"
+                  className="display-title portfolio-reveal portfolio-reveal-delay-1 max-w-4xl"
+                >
+                  <span className="hero-name-line">Derick</span>
+                  <span className="hero-name-line text-muted">RICHARD</span>
                 </h1>
               </div>
 
-              <p className="portfolio-reveal portfolio-reveal-delay-2 mt-8 max-w-2xl text-[clamp(1.05rem,1.8vw,1.4rem)] leading-[1.35] tracking-[-0.02em]">
+              <p className="portfolio-reveal portfolio-reveal-delay-2 mt-4 max-w-2xl text-[clamp(0.82rem,1.25vw,1.05rem)] leading-[1.4] tracking-[-0.02em]">
                 Software developer building practical systems where
-                <span className="text-accent"> data</span>, software and
-                <span className="text-accent"> intelligent technology</span>
+                <span className="text-accent"> DATA</span>,
+                <span className="text-accent"> SOFTWARE</span> and
+                <span className="text-accent"> INTELLIGENT TECHNOLOGY</span>{" "}
                 meet.
               </p>
 
-              <div className="portfolio-reveal portfolio-reveal-delay-3 mt-8 flex flex-wrap gap-2 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted">
+              <div className="portfolio-reveal portfolio-reveal-delay-3 mt-4 flex flex-wrap gap-2 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-muted">
                 <span className="border border-border px-3 py-2">
                   Analysis
                 </span>
@@ -516,11 +370,11 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="portfolio-reveal portfolio-reveal-delay-4 mt-10 flex flex-wrap items-center gap-3">
+              <div className="portfolio-reveal portfolio-reveal-delay-4 mt-5 flex flex-wrap items-center gap-3">
                 <a
                   href="/resume/Derick%20Richard%20Tsumah_CV.pdf"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="action-primary"
                 >
                   View CV
@@ -533,11 +387,11 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="portfolio-reveal portfolio-reveal-delay-4 mt-8 flex flex-wrap gap-2">
+              <div className="portfolio-reveal portfolio-reveal-delay-4 mt-7 flex flex-wrap gap-2">
                 <a
                   href="https://github.com/dericktrichard"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="social-link"
                 >
                   <GithubIcon />
@@ -547,7 +401,7 @@ export default function Home() {
                 <a
                   href="https://linkedin.com/in/derickrichards"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="social-link"
                 >
                   <LinkedinIcon />
@@ -557,7 +411,7 @@ export default function Home() {
                 <a
                   href="https://wa.me/254758415989"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="social-link"
                 >
                   <WhatsappIcon />
@@ -572,24 +426,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* INTRODUCTION */}
-        <section
-          id="about"
-          className="px-page py-section"
-        >
-          <div className="mx-auto grid max-w-[118rem] gap-12 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
+        {/* ABOUT */}
+        <section id="about" className="px-page py-section">
+          <div className="mx-auto grid max-w-[118rem] gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
             <div>
               <div className="eyebrow">About</div>
             </div>
 
-            <div className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
               <div>
                 <h2 className="section-title max-w-4xl">
-                  I build with technology. I am increasingly interested in
-                  what the data can tell us.
+                  I build with technology. I am increasingly interested in what
+                  the data can tell us.
                 </h2>
 
-                <div className="mt-8 grid gap-5 text-[1rem] leading-7 text-muted md:grid-cols-2 md:gap-10">
+                <div className="mt-7 grid max-w-4xl gap-5 text-[0.72rem] leading-6 text-muted md:grid-cols-2 md:gap-9">
                   <p>
                     My foundation is in Computer Technology, where software,
                     systems and problem solving meet. That has taken me across
@@ -606,37 +457,38 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative mx-auto w-full max-w-md">
+              <div className="relative mx-auto w-full max-w-100">
                 <div className="about-glow absolute -inset-8 rounded-full bg-[color-mix(in_srgb,var(--accent)_5%,transparent)] blur-3xl" />
 
-                <div className="relative grid grid-cols-[1.2fr_.8fr] gap-2">
-                  <div className="relative aspect-4/5 overflow-hidden bg-surface">
+                <div className="relative grid grid-cols-[1.15fr_.85fr] gap-1.5">
+                  <div className="about-image-frame relative aspect-4/5 overflow-hidden bg-surface">
                     <Image
                       src="/projects/sentry/pepperfull.jpg"
                       alt="Pepper robot used in the SENTRY project"
                       fill
-                      sizes="(max-width: 1024px) 60vw, 25vw"
+                      sizes="(max-width: 767px) 48vw, 20vw"
                       className="object-cover"
                     />
                   </div>
 
-                  <div className="grid gap-2">
-                    <div className="relative aspect-square overflow-hidden bg-surface">
+                  <div className="grid gap-1.5">
+                    <div className="about-image-frame relative aspect-square overflow-hidden bg-surface">
                       <Image
                         src="/projects/seia/seiaprofile.jpeg"
                         alt="SEIA application profile interface"
                         fill
-                        sizes="(max-width: 1024px) 35vw, 15vw"
+                        sizes="(max-width: 767px) 30vw, 14vw"
                         className="object-cover"
                       />
                     </div>
 
-                    <div className="flex aspect-square items-end border border-border bg-surface p-4">
+                    <div className="about-signal flex aspect-square items-end border border-border bg-surface p-3">
                       <div>
-                        <div className="font-mono text-[0.55rem] uppercase tracking-[0.14em] text-muted">
+                        <div className="font-mono text-[0.5rem] uppercase tracking-[0.14em] text-muted">
                           Current direction
                         </div>
-                        <div className="mt-2 text-lg tracking-tight">
+
+                        <div className="mt-1.5 text-base tracking-tight">
                           Data + Software
                         </div>
                       </div>
@@ -644,7 +496,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between font-mono text-[0.55rem] uppercase tracking-[0.14em] text-muted">
+                <div className="mt-2 flex items-center justify-between font-mono text-[0.5rem] uppercase tracking-[0.14em] text-muted">
                   <span>Build / Analyse / Improve</span>
                   <span>Kenya</span>
                 </div>
@@ -654,88 +506,48 @@ export default function Home() {
         </section>
 
         {/* WORK */}
-        <section
-          id="work"
-          className="px-page py-section"
-        >
+        <section id="work" className="px-page py-section">
           <div className="mx-auto max-w-[118rem]">
-            <div className="flex flex-col justify-between gap-5 border-b border-border pb-6 md:flex-row md:items-end">
+            <div className="work-heading">
               <div>
                 <div className="eyebrow">Work</div>
-                <h2 className="section-title mt-5">
+
+                <h2 className="section-title mt-4">
                   Selected projects.
                 </h2>
               </div>
 
-              <p className="max-w-sm text-sm leading-6 text-muted">
-                Systems built across software development, optimisation,
-                data and applied AI.
+              <p className="work-heading-copy">
+                Systems built across software, optimisation, data and applied AI.
               </p>
             </div>
 
-            <div className="mt-8 grid gap-10 lg:grid-cols-3 lg:gap-6">
+            <div className="project-carousel" aria-label="Selected projects">
               {projects.map((project) => (
-                <a
-                  key={project.title}
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-card group block"
-                  aria-label={`View ${project.title} project`}
-                >
-                  <div className="project-card-image relative">
-                    {project.visual === "sentry" && (
-                      <Image
-                        src="/projects/sentry/sentry.png"
-                        alt="SENTRY project interface"
-                        width={1600}
-                        height={1000}
-                        sizes="(max-width: 1024px) 100vw, 33vw"
-                        className="aspect-16/10 w-full object-cover"
-                      />
-                    )}
-
-                    {project.visual === "pso" && <PsoVisual />}
-
-                    {project.visual === "seia" && <SeiaVisual />}
-                  </div>
-
-                  <div className="py-5">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="text-xl tracking-tight">
-                          {project.title}
-                        </h3>
-
-                        <p className="mt-1 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">
-                          {project.category}
-                        </p>
-                      </div>
-
-                      <span className="font-mono text-[0.55rem] text-muted">
-                        {project.year}
-                      </span>
-                    </div>
-
-                    <p className="mt-5 max-w-md text-sm leading-6 text-muted">
-                      {project.description}
-                    </p>
-
-                    <div className="project-card-meta mt-6 flex items-center gap-2 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">
-                      View project
-                      <ArrowIcon />
-                    </div>
-                  </div>
-                </a>
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                />
               ))}
+            </div>
+
+            <div className="project-carousel-footer">
+              <span>Scroll to explore</span>
+
+              <div
+                className="project-carousel-rule"
+                aria-hidden="true"
+              >
+                <span />
+              </div>
+
+              <span>{projects.length} selected</span>
             </div>
           </div>
         </section>
 
         {/* CAPABILITIES */}
-        <section
-          className="px-page py-section"
-        >
+        <section className="px-page py-section">
           <div className="mx-auto max-w-[118rem]">
             <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
               <div>
@@ -747,24 +559,24 @@ export default function Home() {
                   One technical foundation. Several ways to use it.
                 </h2>
 
-                <div className="mt-10">
+                <div className="mt-9">
                   {capabilities.map((capability) => {
                     const Icon = capability.icon;
 
                     return (
                       <div
                         key={capability.title}
-                        className="capability-row grid gap-5 py-7 md:grid-cols-[3rem_0.45fr_1fr] md:items-start"
+                        className="capability-row grid gap-4 py-6 md:grid-cols-[2.5rem_0.4fr_1fr] md:items-start"
                       >
                         <div className="text-muted">
                           <Icon />
                         </div>
 
-                        <h3 className="text-xl tracking-tight">
+                        <h3 className="text-[0.92rem] tracking-tight">
                           {capability.title}
                         </h3>
 
-                        <p className="max-w-xl text-sm leading-6 text-muted">
+                        <p className="max-w-xl text-[0.66rem] leading-6 text-muted">
                           {capability.description}
                         </p>
                       </div>
@@ -777,10 +589,7 @@ export default function Home() {
         </section>
 
         {/* EXPERIENCE */}
-        <section
-          id="experience"
-          className="px-page py-section"
-        >
+        <section id="experience" className="px-page py-section">
           <div className="mx-auto max-w-[118rem]">
             <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
               <div>
@@ -789,66 +598,52 @@ export default function Home() {
 
               <div>
                 <div className="border-t border-border">
-                  <div className="grid gap-3 border-b border-border py-7 md:grid-cols-[1fr_1.3fr_.8fr] md:items-center">
-                    <div className="text-lg">Administrative Assistant</div>
-                    <div className="text-sm text-muted">
-                      Zydus Lifesciences Ltd
-                    </div>
-                    <div className="font-mono text-[0.58rem] uppercase tracking-widest text-muted md:text-right">
-                      2024 to 2025
-                    </div>
+                  <div className="experience-row">
+                    <div>Administrative Assistant</div>
+                    <div>Zydus Lifesciences Ltd</div>
+                    <div>2024 to 2025</div>
                   </div>
 
-                  <div className="grid gap-3 border-b border-border py-7 md:grid-cols-[1fr_1.3fr_.8fr] md:items-center">
-                    <div className="text-lg">
-                      Administrative Assistant Attaché
-                    </div>
-                    <div className="text-sm text-muted">
-                      Zydus Lifesciences Ltd
-                    </div>
-                    <div className="font-mono text-[0.58rem] uppercase tracking-widest text-muted md:text-right">
-                      2025
-                    </div>
+                  <div className="experience-row">
+                    <div>Administrative Assistant Attaché</div>
+                    <div>Zydus Lifesciences Ltd</div>
+                    <div>2025</div>
                   </div>
 
-                  <div className="grid gap-3 border-b border-border py-7 md:grid-cols-[1fr_1.3fr_.8fr] md:items-center">
-                    <div className="text-lg">Web Developer</div>
-                    <div className="text-sm text-muted">
-                      AFRAKEN / JHUB Africa
-                    </div>
-                    <div className="font-mono text-[0.58rem] uppercase tracking-widest text-muted md:text-right">
-                      2024
-                    </div>
+                  <div className="experience-row">
+                    <div>Web Developer</div>
+                    <div>AFRAKEN / JHUB Africa</div>
+                    <div>2024</div>
                   </div>
                 </div>
 
-                <div className="mt-12 grid gap-4 md:grid-cols-2">
-                  <div className="border border-border bg-surface p-6">
-                    <div className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">
+                <div className="mt-9 grid gap-3 md:grid-cols-2">
+                  <div className="border border-border bg-surface p-5">
+                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
                       Education
                     </div>
 
-                    <h3 className="mt-5 text-xl tracking-tight">
+                    <h3 className="mt-4 text-lg tracking-tight">
                       B.Sc. Computer Technology
                     </h3>
 
-                    <p className="mt-2 text-sm text-muted">
+                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
                       Jomo Kenyatta University of Agriculture and Technology
                     </p>
                   </div>
 
-                  <div className="border border-border bg-surface p-6">
-                    <div className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">
+                  <div className="border border-border bg-surface p-5">
+                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
                       Foundation
                     </div>
 
-                    <h3 className="mt-5 text-xl tracking-tight">
+                    <h3 className="mt-4 text-lg tracking-tight">
                       Software · Data · AI
                     </h3>
 
-                    <p className="mt-2 text-sm text-muted">
-                      A technical foundation now moving deeper into
-                      analytics and intelligent systems.
+                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
+                      A technical foundation now moving deeper into analytics
+                      and intelligent systems.
                     </p>
                   </div>
                 </div>
@@ -858,21 +653,18 @@ export default function Home() {
         </section>
 
         {/* CONTACT */}
-        <section
-          id="contact"
-          className="px-page pb-12 pt-section"
-        >
+        <section id="contact" className="px-page pb-12 pt-section">
           <div className="mx-auto max-w-[118rem]">
             <div className="border-t border-border pt-8">
-              <div className="grid gap-12 lg:grid-cols-[1fr_.45fr] lg:items-end">
+              <div className="grid gap-10 lg:grid-cols-[1fr_.45fr] lg:items-end">
                 <div>
                   <div className="eyebrow">Contact</div>
 
-                  <h2 className="section-title mt-6 max-w-4xl">
+                  <h2 className="section-title contact-heading mt-5 max-w-4xl">
                     Let&apos;s talk about the work.
                   </h2>
 
-                  <p className="mt-6 max-w-xl text-base leading-7 text-muted">
+                  <p className="mt-5 max-w-xl text-[0.72rem] leading-6 text-muted">
                     Whether it is a software project, data problem,
                     collaboration or opportunity, I am open to meaningful
                     technical conversations.
@@ -880,7 +672,7 @@ export default function Home() {
 
                   <a
                     href="mailto:dericktrichard@gmail.com"
-                    className="mt-8 inline-flex items-center border-b border-foreground pb-1 text-lg tracking-[-0.02em] transition-colors duration-300 hover:text-accent"
+                    className="contact-email mt-7 inline-flex text-[0.82rem] tracking-[-0.02em]"
                   >
                     dericktrichard@gmail.com
                   </a>
@@ -890,7 +682,7 @@ export default function Home() {
                   <a
                     href="https://github.com/dericktrichard"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="social-link"
                   >
                     <GithubIcon />
@@ -900,7 +692,7 @@ export default function Home() {
                   <a
                     href="https://linkedin.com/in/derickrichards"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="social-link"
                   >
                     <LinkedinIcon />
@@ -910,7 +702,7 @@ export default function Home() {
                   <a
                     href="https://wa.me/254758415989"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="social-link"
                   >
                     <WhatsappIcon />
@@ -920,7 +712,7 @@ export default function Home() {
                   <a
                     href="/resume/Derick%20Richard%20Tsumah_CV.pdf"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="action-primary"
                   >
                     View CV
@@ -929,9 +721,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="signal-line mt-16" />
+              <div className="signal-line mt-12" />
 
-              <footer className="flex flex-col gap-3 py-6 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:items-center sm:justify-between">
+              <footer className="flex flex-col gap-3 py-5 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:items-center sm:justify-between">
                 <span>Derick Richard Tsumah</span>
                 <span>Computer Technology / Data / Software</span>
                 <span>© {new Date().getFullYear()}</span>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -6,10 +7,7 @@ import {
   getAdjacentProjects,
   getProject,
   projectOrder,
-} from "../project-data";
-import { ProjectGallery } from "../components/project-gallery";
-import { ProjectNavigation } from "../components/project-navigation";
-import { ProjectVisual } from "../components/project-visual";
+} from "../../data/projects";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -18,7 +16,9 @@ type ProjectPageProps = {
 };
 
 export function generateStaticParams() {
-  return projectOrder.map((slug) => ({ slug }));
+  return projectOrder.map((slug) => ({
+    slug,
+  }));
 }
 
 export async function generateMetadata({
@@ -29,13 +29,13 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project not found",
+      title: "Project not found | Derick Richard",
     };
   }
 
   return {
-    title: `${project.title} | Derick Richard Tsumah`,
-    description: project.shortDescription,
+    title: `${project.title} | Derick Richard`,
+    description: project.description,
   };
 }
 
@@ -57,26 +57,6 @@ function ArrowIcon() {
   );
 }
 
-function ExternalLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="action-secondary"
-    >
-      {children}
-      <ArrowIcon />
-    </a>
-  );
-}
-
 export default async function ProjectPage({
   params,
 }: ProjectPageProps) {
@@ -90,110 +70,164 @@ export default async function ProjectPage({
   const { previous, next } = getAdjacentProjects(project.slug);
 
   return (
-    <main className="project-page overflow-x-clip">
-      <header className="project-header">
+    <main className="project-page">
+      <header className="project-page-header">
         <Link
           href="/"
-          className="project-brand"
-          aria-label="Return to Derick Richard home"
+          className="project-page-mark"
+          aria-label="Return home"
         >
-          DR<span className="text-accent">.</span>
+          DR<span>.</span>
         </Link>
 
-        <Link href="/#work" className="project-back">
+        <Link
+          href="/#work"
+          className="project-page-back"
+        >
           <span aria-hidden="true">←</span>
           All work
         </Link>
       </header>
 
-      <article>
-        <section className="project-hero">
-          <div className="project-hero-copy">
-            <p className="project-eyebrow">
-              {project.category}
-              <span aria-hidden="true">/</span>
-              {project.year}
-            </p>
-
-            <h1>{project.title}</h1>
-
-            <p className="project-lede">
-              {project.description}
-            </p>
+      <div className="project-page-content">
+        <section className="project-page-hero">
+          <div className="eyebrow">
+            {project.category} · {project.year}
           </div>
 
-          <div className="project-case-hero-image">
-            <ProjectVisual project={project} hero />
-          </div>
+          <h1>{project.title}</h1>
+
+          <p>{project.description}</p>
+
+          {project.hero && (
+            <div className="project-case-hero-image">
+              <Image
+                src={project.hero.src}
+                alt={project.hero.alt}
+                fill
+                priority
+                sizes="(max-width: 767px) 90vw, min(64rem, 82vw)"
+                className="object-contain"
+              />
+            </div>
+          )}
         </section>
 
-        <section
-          aria-labelledby="project-overview-title"
-          className="project-overview"
-        >
-          <div className="project-section-label">
-            <span id="project-overview-title">Overview</span>
-          </div>
+        <section className="project-overview">
+          <div className="eyebrow">Overview</div>
 
           <div className="project-overview-grid">
-            <div className="project-overview-copy">
-              <p className="project-description">
+            <div>
+              <p className="project-overview-description">
                 {project.description}
               </p>
 
               <div className="project-role">
-                <span className="project-small-label">My role</span>
+                <span>My role</span>
                 <p>{project.role}</p>
               </div>
             </div>
 
-            <aside className="project-facts">
-              <div>
-                <span className="project-small-label">Technologies</span>
+            <aside className="project-tech">
+              <span>Technologies</span>
 
-                <ul className="project-stack">
-                  {project.stack.map((technology) => (
-                    <li key={technology}>{technology}</li>
-                  ))}
-                </ul>
+              <div className="project-tech-list">
+                {project.technologies.map((technology) => (
+                  <span key={technology}>
+                    {technology}
+                  </span>
+                ))}
               </div>
 
-              <ExternalLink href={project.repository}>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-secondary project-repository-link"
+              >
                 View repository
-              </ExternalLink>
+                <ArrowIcon />
+              </a>
             </aside>
           </div>
         </section>
 
-        <section
-          aria-labelledby="project-story-title"
-          className="project-story"
-        >
-          <div className="project-section-label">
-            <span id="project-story-title">The project</span>
-          </div>
+        <section className="project-story">
+          <div className="eyebrow">The project</div>
 
           <div className="project-story-list">
             {project.sections.map((section) => (
-              <section
+              <article
                 key={section.title}
                 className="project-story-row"
               >
                 <h2>{section.title}</h2>
                 <p>{section.body}</p>
-              </section>
+              </article>
             ))}
           </div>
         </section>
 
-        <ProjectGallery images={project.gallery} />
+        {project.gallery.length > 0 && (
+          <section className="project-gallery-section">
+            <div className="project-section-heading">
+              <div className="eyebrow">Visual record</div>
+              <span>{String(project.gallery.length).padStart(2, "0")} images</span>
+            </div>
 
-        <ProjectNavigation previous={previous} next={next} />
-      </article>
+            <div className="project-gallery">
+              {project.gallery.map((image) => (
+                <figure
+                  key={image.src}
+                  className={`project-gallery-item project-gallery-${image.aspect ?? "standard"}`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 767px) 90vw, min(56rem, 78vw)"
+                    className="object-contain"
+                  />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
-      <footer className="project-footer">
+        <nav
+          className="project-next-navigation"
+          aria-label="Project navigation"
+        >
+          {previous && (
+            <Link
+              href={`/work/${previous.slug}`}
+              className="project-nav-card"
+            >
+              <span>Previous project</span>
+              <strong>{previous.title}</strong>
+              <span aria-hidden="true">←</span>
+            </Link>
+          )}
+
+          {next && (
+            <Link
+              href={`/work/${next.slug}`}
+              className="project-nav-card project-nav-card-next"
+            >
+              <span>Next project</span>
+              <strong>{next.title}</strong>
+              <span aria-hidden="true">→</span>
+            </Link>
+          )}
+        </nav>
+      </div>
+
+      <footer className="project-page-footer">
         <span>Derick Richard Tsumah</span>
-        <Link href="/#contact">Get in touch</Link>
+
+        <Link href="/">
+          Back to portfolio
+        </Link>
       </footer>
     </main>
   );

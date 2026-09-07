@@ -47,31 +47,32 @@ export const projects: Project[] = [
     ],
     repository: "https://github.com/SENTRY-Pepper/sentry-system",
     hero: {
-      src: "/projects/sentry/sentry.png",
-      alt: "SENTRY project interface",
-      aspect: "wide",
+    src: "/projects/sentry/sentry.png",
+    alt: "SENTRY project interface",
+    aspect: "wide",
     },
+
     gallery: [
-      {
+    {
         src: "/projects/sentry/sentryhome.png",
         alt: "SENTRY application home screen",
         aspect: "wide",
-      },
-      {
+    },
+    {
         src: "/projects/sentry/sentrylogin.png",
         alt: "SENTRY application login screen",
         aspect: "wide",
-      },
-      {
+    },
+    {
         src: "/projects/sentry/pepperclose.jpg",
         alt: "Close view of the Pepper robot used in SENTRY",
         aspect: "standard",
-      },
-      {
+    },
+    {
         src: "/projects/sentry/pepperfull.jpg",
         alt: "Full view of the Pepper robot used in SENTRY",
         aspect: "portrait",
-      },
+    },
     ],
     sections: [
       {

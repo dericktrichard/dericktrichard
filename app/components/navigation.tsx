@@ -15,31 +15,35 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-[clamp(1.25rem,4vw,5rem)] py-5">
-      <nav className="mx-auto flex max-w-[100rem] items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-50 px-page py-4">
+      <nav className="nav-shell mx-auto flex max-w-[118rem] items-center justify-between">
         <Link
           href="/"
           aria-label="Derick Richard home"
-          className="font-(family-name:--font-geist-mono) text-sm font-medium tracking-tight"
+          className="nav-mark font-mono text-[0.7rem] font-medium tracking-[-0.03em]"
         >
-          DR.
+          DR<span className="text-accent">.</span>
         </Link>
 
-        <div className="hidden items-center gap-[clamp(1.25rem,2.5vw,2.5rem)] sm:flex">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted transition-colors duration-300 hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="hidden items-center sm:flex">
+          <div className="nav-links flex items-center">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
 
-          <ThemeToggle />
+          <div className="ml-4 border-l border-border pl-4">
+            <ThemeToggle />
+          </div>
         </div>
 
-        <div className="flex items-center gap-3 sm:hidden">
+        <div className="flex items-center gap-2 sm:hidden">
           <ThemeToggle />
 
           <button
@@ -47,32 +51,38 @@ export function Navigation() {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-navigation"
-            className="border border-border px-4 py-2 text-sm"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            className="nav-menu-button"
           >
-            Menu
+            <span className={open ? "nav-menu-line nav-menu-line-open" : "nav-menu-line"} />
+            <span className={open ? "nav-menu-line nav-menu-line-open" : "nav-menu-line"} />
           </button>
         </div>
       </nav>
 
-      {open && (
-        <div
-          id="mobile-navigation"
-          className="mx-auto mt-4 max-w-[100rem] border border-border bg-background sm:hidden"
-        >
-          <div className="flex flex-col p-5">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-border py-4 text-lg last:border-b-0"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      <div
+        className={`nav-mobile-panel mx-auto mt-3 max-w-[118rem] sm:hidden ${
+          open ? "nav-mobile-panel-open" : ""
+        }`}
+        id="mobile-navigation"
+      >
+        <div className="grid">
+          {links.map((link, index) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="nav-mobile-link"
+            >
+              <span>{link.label}</span>
+
+              <span className="font-mono text-[0.55rem] text-muted">
+                0{index + 1}
+              </span>
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }

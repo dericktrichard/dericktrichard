@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import type { ReactNode } from "react";
+
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
@@ -20,17 +21,9 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Derick Richard | Software, Data & AI",
+  title: "Derick Richard | Data & Software",
   description:
-    "Portfolio of Derick Richard, a Computer Technology graduate focused on data analytics, software development and AI.",
-  authors: [{ name: "Derick Richard" }],
-  keywords: [
-    "Derick Richard",
-    "Data Analytics",
-    "Software Development",
-    "Artificial Intelligence",
-    "Portfolio",
-  ],
+    "Derick Richard, Computer Technology graduate specializing in Data Analytics, with a foundation in software development, AI, and digital systems.",
 };
 
 export default function RootLayout({
@@ -41,10 +34,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSans.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSans.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-full">
+      <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
