@@ -10,17 +10,6 @@ My work sits at the intersection of software, data, and intelligent systems. I e
 
 `Data Analytics` · `Software Engineering` · `Artificial Intelligence` · `System Design`
 
-### Selected work
-
-**SENTRY**  
-Grounded AI cybersecurity training system integrating retrieval, analytics, Android and robotics.
-
-**PSO Logistics Optimizer**  
-Interactive Particle Swarm Optimization system for logistics routing.
-
-**ZYSA**  
-Android-based employee performance evaluation and data collection platform.
-
 ### Currently
 
 Deepening my expertise in **Data Analytics**, while continuing to build strong foundations in software engineering and AI.
