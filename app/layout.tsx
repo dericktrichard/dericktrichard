@@ -21,9 +21,55 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Derick Richard | Data & Software",
+  metadataBase: new URL("https://dericktrichard.com"),
+
+  title: {
+    default: "Derick Richard | Data & Software",
+    template: "%s | Derick Richard",
+  },
+
   description:
-    "Derick Richard, Computer Technology graduate specializing in Data Analytics, with a foundation in software development, AI, and digital systems.",
+    "Derick Richard is a Computer Technology graduate focused on Data Analytics, software development and applied AI.",
+
+  applicationName: "Derick Richard",
+
+  keywords: [
+    "Derick Richard",
+    "Data Analytics",
+    "Software Development",
+    "Artificial Intelligence",
+    "Computer Technology",
+    "Portfolio",
+  ],
+
+  authors: [
+    {
+      name: "Derick Richard",
+    },
+  ],
+
+  creator: "Derick Richard",
+
+  openGraph: {
+    type: "website",
+    siteName: "Derick Richard",
+    title: "Derick Richard | Data & Software",
+    description:
+      "Computer Technology graduate focused on Data Analytics, software development and applied AI.",
+    url: "https://dericktrichard.com",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Derick Richard | Data & Software",
+    description:
+      "Computer Technology graduate focused on Data Analytics, software development and applied AI.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

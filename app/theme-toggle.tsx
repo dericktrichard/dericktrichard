@@ -59,7 +59,7 @@ export function ThemeToggle() {
     <button
       aria-label={`Switch to ${isLight ? "dark" : "light"} theme`}
       aria-pressed={isLight}
-      className="group relative grid h-10 w-[5.25rem] grid-cols-2 items-center rounded-full border border-(--border) bg-(--toggle-track) p-1 text-(--toggle-inactive) outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-(--background) motion-reduce:transition-none"
+      className="theme-toggle group relative grid h-10 w-21 grid-cols-2 items-center rounded-full border border-border bg-(--toggle-track) p-1 text-(--toggle-inactive) outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
       onClick={() => setTheme(isLight ? "dark" : "light")}
       type="button"
     >

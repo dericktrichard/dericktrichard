@@ -81,8 +81,7 @@ export default async function ProjectPage({
         </Link>
 
         <Link
-          href="/#work"
-          className="project-page-back"
+          href="/" className="project-page-back"
         >
           <span aria-hidden="true">←</span>
           All work
@@ -106,7 +105,7 @@ export default async function ProjectPage({
                 alt={project.hero.alt}
                 fill
                 priority
-                sizes="(max-width: 767px) 90vw, min(64rem, 82vw)"
+                sizes="(max-width: 767px) 92vw, 52rem"
                 className="object-contain"
               />
             </div>
@@ -131,9 +130,9 @@ export default async function ProjectPage({
             <aside className="project-tech">
               <span>Technologies</span>
 
-              <div className="project-tech-list">
+              <div className="project-technologies">
                 {project.technologies.map((technology) => (
-                  <span key={technology}>
+                  <span key={technology} className="technology-tag">
                     {technology}
                   </span>
                 ))}
@@ -170,16 +169,24 @@ export default async function ProjectPage({
 
         {project.gallery.length > 0 && (
           <section className="project-gallery-section">
-            <div className="project-section-heading">
-              <div className="eyebrow">Visual record</div>
-              <span>{String(project.gallery.length).padStart(2, "0")} images</span>
+              <div className="project-section-heading">
+              <span className="eyebrow">Visual record</span>
+              <span className="project-image-count">
+                {String(project.gallery.length).padStart(2, "0")} images
+              </span>
             </div>
 
             <div className="project-gallery">
               {project.gallery.map((image) => (
                 <figure
                   key={image.src}
-                  className={`project-gallery-item project-gallery-${image.aspect ?? "standard"}`}
+                  className={
+                    image.aspect === "wide"
+                      ? "project-gallery-feature"
+                      : image.aspect === "portrait"
+                        ? "project-gallery-portrait"
+                        : undefined
+                  }
                 >
                   <Image
                     src={image.src}
@@ -194,17 +201,18 @@ export default async function ProjectPage({
           </section>
         )}
 
-        <nav
-          className="project-next-navigation"
-          aria-label="Project navigation"
-        >
+        <nav aria-label="Project navigation" className="project-navigation">
           {previous && (
             <Link
               href={`/work/${previous.slug}`}
-              className="project-nav-card"
+              className="project-navigation-item"
             >
-              <span>Previous project</span>
-              <strong>{previous.title}</strong>
+              <span className="project-navigation-label">
+                Previous project
+              </span>
+              <span className="project-navigation-title">
+                {previous.title}
+              </span>
               <span aria-hidden="true">←</span>
             </Link>
           )}
@@ -212,10 +220,14 @@ export default async function ProjectPage({
           {next && (
             <Link
               href={`/work/${next.slug}`}
-              className="project-nav-card project-nav-card-next"
+              className="project-navigation-item project-navigation-next"
             >
-              <span>Next project</span>
-              <strong>{next.title}</strong>
+              <span className="project-navigation-label">
+                Next project
+              </span>
+              <span className="project-navigation-title">
+                {next.title}
+              </span>
               <span aria-hidden="true">→</span>
             </Link>
           )}

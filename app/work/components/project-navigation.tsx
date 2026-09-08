@@ -43,12 +43,15 @@ export function ProjectNavigation({
       className="project-navigation"
     >
       {previous ? (
-        <Link href={`/work/${previous.slug}`} className="project-nav-item">
-          <span className="project-nav-direction">
-            <Arrow direction="left" />
+        <Link
+          href={`/work/${previous.slug}`}
+          className="project-navigation-item"
+        >
+          <span className="project-navigation-label">
             Previous project
           </span>
-          <span className="project-nav-title">{previous.title}</span>
+          <span className="project-navigation-title">{previous.title}</span>
+          <Arrow direction="left" />
         </Link>
       ) : (
         <div />
@@ -57,13 +60,13 @@ export function ProjectNavigation({
       {next ? (
         <Link
           href={`/work/${next.slug}`}
-          className="project-nav-item project-nav-item-next"
+          className="project-navigation-item project-navigation-next"
         >
-          <span className="project-nav-direction">
+          <span className="project-navigation-label">
             Next project
-            <Arrow direction="right" />
           </span>
-          <span className="project-nav-title">{next.title}</span>
+          <span className="project-navigation-title">{next.title}</span>
+          <Arrow direction="right" />
         </Link>
       ) : null}
     </nav>

@@ -53,8 +53,8 @@ export const projects: Project[] = [
     visual: "sentry",
     github: "https://github.com/SENTRY-Pepper/sentry-system",
     hero: {
-      src: "/projects/sentry/sentry.png",
-      alt: "SENTRY system interface",
+      src: "/projects/sentry/sentryhome.png",
+      alt: "SENTRY application interface",
       aspect: "wide",
     },
     gallery: [

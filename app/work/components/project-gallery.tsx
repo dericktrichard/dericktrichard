@@ -17,7 +17,9 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
     >
       <div className="project-section-label">
         <span>Visual record</span>
-        <span>{String(images.length).padStart(2, "0")} images</span>
+        <span className="project-image-count">
+          {String(images.length).padStart(2, "0")} images
+        </span>
       </div>
 
       <h2 id="visual-record-title" className="sr-only">
@@ -31,7 +33,13 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
             href={image.src}
             target="_blank"
             rel="noopener noreferrer"
-            className={`project-gallery-item project-gallery-item-${image.aspect ?? "standard"}`}
+            className={
+              image.aspect === "wide"
+                ? "project-gallery-feature"
+                : image.aspect === "portrait"
+                  ? "project-gallery-portrait"
+                  : undefined
+            }
             aria-label={`Open project image ${index + 1}`}
           >
             <Image

@@ -320,15 +320,15 @@ const capabilities = [
 export default function Home() {
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Skip to content
-      </a>
-
       <Navigation />
 
       <div className="site-atmosphere" aria-hidden="true" />
 
       <main id="main-content" className="site-content overflow-x-clip">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+
         {/* HERO */}
         <section
           aria-labelledby="hero-title"
@@ -420,9 +420,16 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="portfolio-reveal portfolio-reveal-delay-2 hidden lg:block">
-              <DataVisual />
+            <div className="profile-image-frame">
+              <Image
+                src="/profile/profileimage.png"
+                alt="Derick Richard"
+                fill
+                sizes="(max-width: 767px) 70vw, 24rem"
+                className="object-cover"
+              />
             </div>
+
           </div>
         </section>
 
