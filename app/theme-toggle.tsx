@@ -11,16 +11,16 @@ function MoonIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="size-4"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      className="theme-toggle-icon"
     >
       <path
-        d="M20.1 14.7A8.2 8.2 0 0 1 9.3 3.9 8.2 8.2 0 1 0 20.1 14.7Z"
+        d="M20.1 14.7A8.2 8.2 0 0 1 9.3 3.9a8.25 8.25 0 1 0 10.8 10.8Z"
         stroke="currentColor"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.8"
       />
     </svg>
   );
@@ -30,16 +30,23 @@ function SunIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="size-4"
-      fill="none"
       viewBox="0 0 24 24"
+      fill="none"
+      className="theme-toggle-icon"
     >
-      <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M12 2.8v2M12 19.2v2M4.4 4.4l1.4 1.4M18.2 18.2l1.4 1.4M2.8 12h2M19.2 12h2M4.4 19.6l1.4-1.4M18.2 5.8l1.4-1.4"
+      <circle
+        cx="12"
+        cy="12"
+        r="3.4"
         stroke="currentColor"
+        strokeWidth="1.7"
+      />
+
+      <path
+        d="M12 2.7v2M12 19.3v2M4.42 4.42l1.42 1.42M18.16 18.16l1.42 1.42M2.7 12h2M19.3 12h2M4.42 19.58 5.84 18.16M18.16 5.84l1.42-1.42"
+        stroke="currentColor"
+        strokeWidth="1.7"
         strokeLinecap="round"
-        strokeWidth="1.8"
       />
     </svg>
   );
@@ -47,6 +54,7 @@ function SunIcon() {
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+
   const mounted = useSyncExternalStore(
     emptySubscribe,
     getClientSnapshot,
@@ -57,30 +65,33 @@ export function ThemeToggle() {
 
   return (
     <button
+      type="button"
+      className="theme-toggle"
       aria-label={`Switch to ${isLight ? "dark" : "light"} theme`}
       aria-pressed={isLight}
-      className="theme-toggle group relative grid h-10 w-21 grid-cols-2 items-center rounded-full border border-border bg-(--toggle-track) p-1 text-(--toggle-inactive) outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
       onClick={() => setTheme(isLight ? "dark" : "light")}
-      type="button"
     >
       <span
-        aria-hidden="true"
-        className="absolute left-1 top-1 h-8 w-9 rounded-full bg-(--toggle-indicator) transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
-        style={{ transform: isLight ? "translateX(2rem)" : "translateX(0)" }}
-      />
-      <span
-        className={`relative z-10 grid place-items-center transition-colors duration-300 motion-reduce:transition-none ${
-          isLight ? "" : "text-(--toggle-indicator-foreground)"
+        className={`theme-toggle-track ${
+          isLight ? "theme-toggle-track-light" : ""
         }`}
       >
-        <MoonIcon />
-      </span>
-      <span
-        className={`relative z-10 grid place-items-center transition-colors duration-300 motion-reduce:transition-none ${
-          isLight ? "text-(--toggle-indicator-foreground)" : ""
-        }`}
-      >
-        <SunIcon />
+        <span className="theme-toggle-option theme-toggle-moon">
+          <MoonIcon />
+        </span>
+
+        <span className="theme-toggle-option theme-toggle-sun">
+          <SunIcon />
+        </span>
+
+        <span
+          aria-hidden="true"
+          className={`theme-toggle-indicator ${
+            isLight ? "theme-toggle-indicator-light" : ""
+          }`}
+        >
+          {isLight ? <SunIcon /> : <MoonIcon />}
+        </span>
       </span>
     </button>
   );
