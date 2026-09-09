@@ -15,7 +15,7 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-page py-4">
+    <header className="fixed inset-x-0 top-5 z-50 px-page py-4">
       <nav className="nav-shell mx-auto flex max-w-[118rem] items-center justify-between">
         <Link
           href="/"
@@ -25,7 +25,7 @@ export function Navigation() {
           DR<span className="text-accent">.</span>
         </Link>
 
-        <div className="hidden items-center sm:flex">
+        <div className="hidden items-center md:flex">
           <div className="nav-links flex items-center">
             {links.map((link) => (
               <Link
@@ -38,12 +38,12 @@ export function Navigation() {
             ))}
           </div>
 
-          <div className="ml-4 border-l border-border pl-4">
+          <div className="ml-5">
             <ThemeToggle />
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
 
           <button
@@ -61,7 +61,7 @@ export function Navigation() {
       </nav>
 
       <div
-        className={`nav-mobile-panel mx-auto mt-3 max-w-[118rem] sm:hidden ${
+        className={`nav-mobile-panel mx-auto mt-3 max-w-[118rem] md:hidden ${
           open ? "nav-mobile-panel-open" : ""
         }`}
         id="mobile-navigation"

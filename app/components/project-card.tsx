@@ -9,7 +9,7 @@ function ArrowIcon() {
       aria-hidden="true"
       viewBox="0 0 16 16"
       fill="none"
-      className="h-3 w-3"
+      className="project-card-icon"
     >
       <path
         d="M3 13 13 3M6 3h7v7"
@@ -36,15 +36,18 @@ export function ProjectCard({
         <div className="project-card-media">
           <ProjectVisual visual={project.visual} />
 
-          <div className="project-card-corner">
+          <div className="project-card-index" aria-hidden="true">
             <span>{project.number}</span>
+            <span className="project-card-index-line" />
             <ArrowIcon />
           </div>
+
+          <div className="project-card-media-shade" />
         </div>
 
         <div className="project-card-info">
           <div className="project-card-heading">
-            <div className="min-w-0">
+            <div className="project-card-title-group">
               <p className="project-card-category">
                 {project.category}
               </p>
@@ -62,9 +65,12 @@ export function ProjectCard({
           </p>
 
           <div className="project-card-footer">
-            <span>Case study</span>
+            <span className="project-card-footer-label">
+              Case study
+            </span>
 
-            <span className="project-card-arrow">
+            <span className="project-card-footer-action">
+              Explore
               <ArrowIcon />
             </span>
           </div>

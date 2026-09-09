@@ -61,6 +61,7 @@ export default async function ProjectPage({
   params,
 }: ProjectPageProps) {
   const { slug } = await params;
+
   const project = getProject(slug);
 
   if (!project) {
@@ -71,138 +72,192 @@ export default async function ProjectPage({
 
   return (
     <main className="project-page">
-      <header className="project-page-header">
-        <Link
-          href="/"
-          className="project-page-mark"
-          aria-label="Return home"
-        >
-          DR<span>.</span>
-        </Link>
+      {/* =====================================================
+          PROJECT HEADER
+          ===================================================== */}
 
-        <Link
-          href="/" className="project-page-back"
-        >
-          <span aria-hidden="true">←</span>
-          All work
-        </Link>
+      <header className="project-header">
+        <div className="mx-auto flex w-[min(100%-2*var(--spacing-page),118rem)] items-center justify-between">
+          <Link
+            href="/"
+            className="project-brand"
+            aria-label="Return to portfolio home"
+          >
+            DR<span className="text-accent">.</span>
+          </Link>
+
+          <Link
+            href="/"
+            className="project-back"
+          >
+            <span aria-hidden="true">←</span>
+            All work
+          </Link>
+        </div>
       </header>
 
-      <div className="project-page-content">
-        <section className="project-page-hero">
-          <div className="eyebrow">
+      {/* =====================================================
+          HERO
+          ===================================================== */}
+
+      <section className="project-hero">
+        <div className="project-hero-copy">
+          <div className="project-eyebrow">
             {project.category} · {project.year}
           </div>
 
           <h1>{project.title}</h1>
 
-          <p>{project.description}</p>
+          <p className="project-lede">
+            {project.description}
+          </p>
+        </div>
 
-          {project.hero && (
-            <div className="project-case-hero-image">
-              <Image
-                src={project.hero.src}
-                alt={project.hero.alt}
-                fill
-                priority
-                sizes="(max-width: 767px) 92vw, 52rem"
-                className="object-contain"
-              />
-            </div>
-          )}
-        </section>
-
-        <section className="project-overview">
-          <div className="eyebrow">Overview</div>
-
-          <div className="project-overview-grid">
-            <div>
-              <p className="project-overview-description">
-                {project.description}
-              </p>
-
-              <div className="project-role">
-                <span>My role</span>
-                <p>{project.role}</p>
-              </div>
-            </div>
-
-            <aside className="project-tech">
-              <span>Technologies</span>
-
-              <div className="project-technologies">
-                {project.technologies.map((technology) => (
-                  <span key={technology} className="technology-tag">
-                    {technology}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-secondary project-repository-link"
-              >
-                View repository
-                <ArrowIcon />
-              </a>
-            </aside>
+        {project.hero && (
+          <div className="project-case-hero-image">
+            <Image
+              src={project.hero.src}
+              alt={project.hero.alt}
+              fill
+              priority
+              sizes="(max-width: 767px) 92vw, 52rem"
+              className="object-contain"
+            />
           </div>
-        </section>
+        )}
+      </section>
 
-        <section className="project-story">
-          <div className="eyebrow">The project</div>
+      {/* =====================================================
+          OVERVIEW
+          ===================================================== */}
 
-          <div className="project-story-list">
-            {project.sections.map((section) => (
-              <article
-                key={section.title}
-                className="project-story-row"
-              >
-                <h2>{section.title}</h2>
-                <p>{section.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="project-overview">
+        <div className="project-section-label">
+          Overview
+        </div>
 
-        {project.gallery.length > 0 && (
-          <section className="project-gallery-section">
-              <div className="project-section-heading">
-              <span className="eyebrow">Visual record</span>
-              <span className="project-image-count">
-                {String(project.gallery.length).padStart(2, "0")} images
+        <div className="project-overview-grid">
+          <div className="project-overview-copy">
+            <p className="project-description">
+              {project.description}
+            </p>
+
+            <div className="project-role">
+              <span className="project-small-label">
+                My role
               </span>
+
+              <p>{project.role}</p>
+            </div>
+          </div>
+
+          <aside className="project-facts">
+            <div>
+              <span className="project-small-label">
+                Technologies
+              </span>
+
+              <ul className="project-stack">
+                {project.technologies.map((technology) => (
+                  <li key={technology}>
+                    {technology}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="project-gallery">
-              {project.gallery.map((image) => (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-secondary"
+            >
+              View repository
+              <ArrowIcon />
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PROJECT STORY
+          ===================================================== */}
+
+      <section className="project-story">
+        <div className="project-section-label">
+          The project
+        </div>
+
+        <div className="project-story-list">
+          {project.sections.map((section) => (
+            <article
+              key={section.title}
+              className="project-story-row"
+            >
+              <h2>{section.title}</h2>
+
+              <p>{section.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* =====================================================
+          VISUAL RECORD
+          ===================================================== */}
+
+      {project.gallery.length > 0 && (
+        <section className="project-gallery-section">
+          <div className="project-section-heading">
+            <span className="project-section-label">
+              Visual record
+            </span>
+
+            <span className="project-image-count">
+              {String(project.gallery.length).padStart(2, "0")}{" "}
+              images
+            </span>
+          </div>
+
+          <div className="project-gallery">
+            {project.gallery.map((image) => {
+              const imageClass = `project-gallery-item ${
+                image.aspect === "wide"
+                  ? "project-gallery-feature"
+                  : image.aspect === "portrait"
+                    ? "project-gallery-portrait"
+                    : ""
+              }`;
+
+              return (
                 <figure
                   key={image.src}
-                  className={
-                    image.aspect === "wide"
-                      ? "project-gallery-feature"
-                      : image.aspect === "portrait"
-                        ? "project-gallery-portrait"
-                        : undefined
-                  }
+                  className={imageClass}
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="(max-width: 767px) 90vw, min(56rem, 78vw)"
+                    sizes="(max-width: 767px) 90vw, min(48rem, 78vw)"
                     className="object-contain"
                   />
                 </figure>
-              ))}
-            </div>
-          </section>
-        )}
+              );
+            })}
+          </div>
+        </section>
+      )}
 
-        <nav aria-label="Project navigation" className="project-navigation">
-          {previous && (
+      {/* =====================================================
+          PREVIOUS / NEXT
+          ===================================================== */}
+
+      {(previous || next) && (
+        <nav
+          aria-label="Project navigation"
+          className="project-navigation"
+        >
+          {previous ? (
             <Link
               href={`/work/${previous.slug}`}
               className="project-navigation-item"
@@ -210,14 +265,20 @@ export default async function ProjectPage({
               <span className="project-navigation-label">
                 Previous project
               </span>
+
               <span className="project-navigation-title">
                 {previous.title}
               </span>
-              <span aria-hidden="true">←</span>
+
+              <span aria-hidden="true">
+                ←
+              </span>
             </Link>
+          ) : (
+            <div aria-hidden="true" />
           )}
 
-          {next && (
+          {next ? (
             <Link
               href={`/work/${next.slug}`}
               className="project-navigation-item project-navigation-next"
@@ -225,16 +286,24 @@ export default async function ProjectPage({
               <span className="project-navigation-label">
                 Next project
               </span>
+
               <span className="project-navigation-title">
                 {next.title}
               </span>
-              <span aria-hidden="true">→</span>
-            </Link>
-          )}
-        </nav>
-      </div>
 
-      <footer className="project-page-footer">
+              <span aria-hidden="true">
+                →
+              </span>
+            </Link>
+          ) : null}
+        </nav>
+      )}
+
+      {/* =====================================================
+          FOOTER
+          ===================================================== */}
+
+      <footer className="project-footer">
         <span>Derick Richard Tsumah</span>
 
         <Link href="/">

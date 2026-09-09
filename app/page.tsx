@@ -164,135 +164,19 @@ function IntelligenceIcon() {
       <circle cx="5" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.2" />
       <circle cx="19" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.2" />
       <circle cx="5" cy="17" r="1.5" stroke="currentColor" strokeWidth="1.2" />
-      <circle cx="19" cy="17" r="1.5" stroke="currentColor" strokeWidth="1.2" />
+      <circle
+        cx="19"
+        cy="17"
+        r="1.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
       <path
         d="m6.3 7.8 3.2 2.6M17.7 7.8l-3.2 2.6M6.3 16.2l3.2-2.6M17.7 16.2l-3.2-2.6"
         stroke="currentColor"
         strokeWidth="1.1"
       />
     </svg>
-  );
-}
-
-function DataVisual() {
-  return (
-    <div className="hero-visual relative mx-auto aspect-square w-full max-w-136">
-      <svg
-        viewBox="0 0 500 500"
-        fill="none"
-        className="h-full w-full"
-        aria-hidden="true"
-      >
-        <circle
-          cx="250"
-          cy="250"
-          r="205"
-          stroke="currentColor"
-          strokeOpacity=".13"
-        />
-
-        <circle
-          cx="250"
-          cy="250"
-          r="150"
-          stroke="currentColor"
-          strokeOpacity=".22"
-          className="visual-orbit"
-        />
-
-        <circle
-          cx="250"
-          cy="250"
-          r="95"
-          stroke="currentColor"
-          strokeOpacity=".32"
-          className="visual-orbit visual-orbit-delay"
-        />
-
-        <path
-          d="M250 45v410M45 250h410"
-          stroke="currentColor"
-          strokeOpacity=".08"
-        />
-
-        <path
-          d="M105 365 175 292l61 38 83-119 78 67"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        <path
-          d="M105 365 175 292l61 38 83-119 78 67"
-          stroke="var(--accent)"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray="10 14"
-          className="visual-orbit-slow"
-        />
-
-        <circle
-          cx="105"
-          cy="365"
-          r="5"
-          fill="var(--accent)"
-          className="visual-point"
-        />
-
-        <circle
-          cx="175"
-          cy="292"
-          r="4"
-          fill="currentColor"
-          className="visual-point-delay"
-        />
-
-        <circle
-          cx="236"
-          cy="330"
-          r="4"
-          fill="currentColor"
-          className="visual-point"
-        />
-
-        <circle
-          cx="319"
-          cy="211"
-          r="5"
-          fill="var(--accent)"
-          className="visual-point-delay"
-        />
-
-        <circle
-          cx="397"
-          cy="278"
-          r="4"
-          fill="currentColor"
-          className="visual-point"
-        />
-
-        <circle
-          cx="250"
-          cy="250"
-          r="9"
-          fill="var(--background)"
-          stroke="var(--accent)"
-          strokeWidth="2"
-        />
-
-        <circle cx="250" cy="250" r="3" fill="var(--accent)" />
-      </svg>
-
-      <div className="absolute left-[10%] top-[18%] font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
-        DATA
-      </div>
-
-      <div className="absolute bottom-[18%] right-[8%] font-mono text-[9px] uppercase tracking-[0.18em] text-muted">
-        SYSTEM
-      </div>
-    </div>
   );
 }
 
@@ -324,17 +208,17 @@ export default function Home() {
 
       <div className="site-atmosphere" aria-hidden="true" />
 
-      <main id="main-content" className="site-content overflow-x-clip">
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
 
+      <main id="main-content" className="site-content overflow-x-clip">
         {/* HERO */}
         <section
           aria-labelledby="hero-title"
           className="flex min-h-svh items-center px-page pb-10 pt-20"
         >
-          <div className="mx-auto grid w-full max-w-[118rem] items-center gap-14 lg:grid-cols-[1.15fr_.85fr] lg:gap-4">
+          <div className="mx-auto grid w-full max-w-[118rem] items-center gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-8">
             <div className="hero-copy">
               <div className="portfolio-reveal hero-meta font-mono text-[0.52rem] uppercase tracking-[0.14em] text-muted">
                 Computer Technology · Data Analytics · Kenya
@@ -362,9 +246,11 @@ export default function Home() {
                 <span className="border border-border px-3 py-2">
                   Analysis
                 </span>
+
                 <span className="border border-border px-3 py-2">
                   Systems
                 </span>
+
                 <span className="border border-border px-3 py-2">
                   Applied Intelligence
                 </span>
@@ -420,16 +306,156 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="profile-image-frame">
+            <div className="profile-image-frame mx-auto">
               <Image
                 src="/profile/profileimage.png"
                 alt="Derick Richard"
                 fill
-                sizes="(max-width: 767px) 70vw, 24rem"
+                priority
+                sizes="(max-width: 767px) min(70vw, 18rem), (max-width: 1279px) 30vw, 24rem"
                 className="object-cover"
               />
             </div>
+          </div>
+        </section>
 
+        {/* EXPERIENCE */}
+        <section id="experience" className="px-page py-section">
+          <div className="mx-auto max-w-[118rem]">
+            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
+              <div>
+                <div className="eyebrow">Experience</div>
+              </div>
+
+              <div>
+                <div className="border-t border-border">
+                  <div className="experience-row">
+                    <div>Administrative Assistant</div>
+                    <div>Zydus Lifesciences Ltd</div>
+                    <div>2024 to 2025</div>
+                  </div>
+
+                  <div className="experience-row">
+                    <div>Administrative Assistant Attaché</div>
+                    <div>Zydus Lifesciences Ltd</div>
+                    <div>2025</div>
+                  </div>
+
+                  <div className="experience-row">
+                    <div>Web Developer</div>
+                    <div>AFRAKEN / JHUB Africa</div>
+                    <div>2024</div>
+                  </div>
+                </div>
+
+                <div className="mt-9 grid gap-3 md:grid-cols-2">
+                  <div className="border border-border bg-surface p-5">
+                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
+                      Education
+                    </div>
+
+                    <h3 className="mt-4 text-lg tracking-tight">
+                      B.Sc. Computer Technology
+                    </h3>
+
+                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
+                      Jomo Kenyatta University of Agriculture and Technology
+                    </p>
+                  </div>
+
+                  <div className="border border-border bg-surface p-5">
+                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
+                      Foundation
+                    </div>
+
+                    <h3 className="mt-4 text-lg tracking-tight">
+                      Software · Data · AI
+                    </h3>
+
+                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
+                      A technical foundation now moving deeper into analytics
+                      and intelligent systems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WORK */}
+        <section id="work" className="px-page py-section">
+          <div className="mx-auto max-w-[118rem]">
+            <div className="work-heading">
+              <div>
+                <div className="eyebrow">Work</div>
+
+                <h2 className="section-title mt-4">Selected projects.</h2>
+              </div>
+
+              <p className="work-heading-copy">
+                Systems built across software, optimisation, data and applied
+                AI.
+              </p>
+            </div>
+
+            <div className="project-carousel" aria-label="Selected projects">
+              {projects.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+
+            <div className="project-carousel-footer">
+              <span>Scroll to explore</span>
+
+              <div className="project-carousel-rule" aria-hidden="true">
+                <span />
+              </div>
+
+              <span>{projects.length} selected</span>
+            </div>
+          </div>
+        </section>
+
+        {/* CAPABILITIES */}
+        <section className="px-page py-section">
+          <div className="mx-auto max-w-[118rem]">
+            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
+              <div>
+                <div className="eyebrow">Capabilities</div>
+              </div>
+
+              <div>
+                <h2 className="section-title max-w-3xl">
+                  One technical foundation. Several ways to use it.
+                </h2>
+
+                <div className="mt-9">
+                  {capabilities.map((capability) => {
+                    const Icon = capability.icon;
+
+                    return (
+                      <div
+                        key={capability.title}
+                        className="capability-row grid gap-4 py-6 md:grid-cols-[2.5rem_0.4fr_1fr] md:items-start"
+                      >
+                        <div className="text-muted">
+                          <Icon />
+                        </div>
+
+                        <h3 className="text-[0.92rem] tracking-tight">
+                          {capability.title}
+                        </h3>
+
+                        <p className="max-w-xl text-[0.66rem] leading-6 text-muted">
+                          {capability.description}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -506,153 +532,6 @@ export default function Home() {
                 <div className="mt-2 flex items-center justify-between font-mono text-[0.5rem] uppercase tracking-[0.14em] text-muted">
                   <span>Build / Analyse / Improve</span>
                   <span>Kenya</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* WORK */}
-        <section id="work" className="px-page py-section">
-          <div className="mx-auto max-w-[118rem]">
-            <div className="work-heading">
-              <div>
-                <div className="eyebrow">Work</div>
-
-                <h2 className="section-title mt-4">
-                  Selected projects.
-                </h2>
-              </div>
-
-              <p className="work-heading-copy">
-                Systems built across software, optimisation, data and applied AI.
-              </p>
-            </div>
-
-            <div className="project-carousel" aria-label="Selected projects">
-              {projects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                />
-              ))}
-            </div>
-
-            <div className="project-carousel-footer">
-              <span>Scroll to explore</span>
-
-              <div
-                className="project-carousel-rule"
-                aria-hidden="true"
-              >
-                <span />
-              </div>
-
-              <span>{projects.length} selected</span>
-            </div>
-          </div>
-        </section>
-
-        {/* CAPABILITIES */}
-        <section className="px-page py-section">
-          <div className="mx-auto max-w-[118rem]">
-            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
-              <div>
-                <div className="eyebrow">Capabilities</div>
-              </div>
-
-              <div>
-                <h2 className="section-title max-w-3xl">
-                  One technical foundation. Several ways to use it.
-                </h2>
-
-                <div className="mt-9">
-                  {capabilities.map((capability) => {
-                    const Icon = capability.icon;
-
-                    return (
-                      <div
-                        key={capability.title}
-                        className="capability-row grid gap-4 py-6 md:grid-cols-[2.5rem_0.4fr_1fr] md:items-start"
-                      >
-                        <div className="text-muted">
-                          <Icon />
-                        </div>
-
-                        <h3 className="text-[0.92rem] tracking-tight">
-                          {capability.title}
-                        </h3>
-
-                        <p className="max-w-xl text-[0.66rem] leading-6 text-muted">
-                          {capability.description}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* EXPERIENCE */}
-        <section id="experience" className="px-page py-section">
-          <div className="mx-auto max-w-[118rem]">
-            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
-              <div>
-                <div className="eyebrow">Experience</div>
-              </div>
-
-              <div>
-                <div className="border-t border-border">
-                  <div className="experience-row">
-                    <div>Administrative Assistant</div>
-                    <div>Zydus Lifesciences Ltd</div>
-                    <div>2024 to 2025</div>
-                  </div>
-
-                  <div className="experience-row">
-                    <div>Administrative Assistant Attaché</div>
-                    <div>Zydus Lifesciences Ltd</div>
-                    <div>2025</div>
-                  </div>
-
-                  <div className="experience-row">
-                    <div>Web Developer</div>
-                    <div>AFRAKEN / JHUB Africa</div>
-                    <div>2024</div>
-                  </div>
-                </div>
-
-                <div className="mt-9 grid gap-3 md:grid-cols-2">
-                  <div className="border border-border bg-surface p-5">
-                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
-                      Education
-                    </div>
-
-                    <h3 className="mt-4 text-lg tracking-tight">
-                      B.Sc. Computer Technology
-                    </h3>
-
-                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
-                      Jomo Kenyatta University of Agriculture and Technology
-                    </p>
-                  </div>
-
-                  <div className="border border-border bg-surface p-5">
-                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
-                      Foundation
-                    </div>
-
-                    <h3 className="mt-4 text-lg tracking-tight">
-                      Software · Data · AI
-                    </h3>
-
-                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
-                      A technical foundation now moving deeper into analytics
-                      and intelligent systems.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
