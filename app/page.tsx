@@ -390,7 +390,7 @@ export default function Home() {
               <div>
                 <div className="eyebrow">Work</div>
 
-                <h2 className="section-title mt-4">Selected projects.</h2>
+                <h2 className="section-title mt-4">PROJECTS</h2>
               </div>
 
               <p className="work-heading-copy">

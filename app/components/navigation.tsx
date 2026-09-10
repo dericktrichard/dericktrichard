@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ThemeToggle } from "../theme-toggle";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
