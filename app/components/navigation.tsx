@@ -54,8 +54,20 @@ export function Navigation() {
             aria-label={open ? "Close navigation" : "Open navigation"}
             className="nav-menu-button"
           >
-            <span className={open ? "nav-menu-line nav-menu-line-open" : "nav-menu-line"} />
-            <span className={open ? "nav-menu-line nav-menu-line-open" : "nav-menu-line"} />
+            <span
+              className={
+                open
+                  ? "nav-menu-line nav-menu-line-open"
+                  : "nav-menu-line"
+              }
+            />
+            <span
+              className={
+                open
+                  ? "nav-menu-line nav-menu-line-open"
+                  : "nav-menu-line"
+              }
+            />
           </button>
         </div>
       </nav>

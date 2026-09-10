@@ -35,8 +35,8 @@
   --focus-ring: #d8ff62;
 
   --toggle-track: #151512;
-  --toggle-indicator: #eeeeea;
-  --toggle-indicator-foreground: #080808;
+  --toggle-indicator: #080808;
+  --toggle-indicator-foreground: #eeeeea;
   --toggle-inactive: #85857c;
 
   --atmosphere-line: rgba(238, 238, 234, 0.045);
@@ -61,8 +61,8 @@
   --focus-ring: #1f4f3a;
 
   --toggle-track: #e7e7df;
-  --toggle-indicator: #161614;
-  --toggle-indicator-foreground: #f7f7f3;
+  --toggle-indicator: #ffffff;
+  --toggle-indicator-foreground: #161614;
   --toggle-inactive: #74746b;
 
   --atmosphere-line: rgba(22, 22, 20, 0.045);
@@ -210,6 +210,15 @@ a:focus-visible {
 .site-content {
   position: relative;
   z-index: 1;
+  overflow-x: clip;
+}
+
+.site-content > section {
+  width: min(
+    calc(105% - 2 * var(--spacing-page)),
+    118rem
+  );
+  margin-inline: auto;
 }
 
 @keyframes atmosphere-drift {
@@ -728,16 +737,7 @@ a:focus-visible {
 }
 
 .theme-toggle-indicator-light {
-  transform: translateX(2.05rem);
-}
-
-.light .theme-toggle-indicator,
-[data-theme="light"] .theme-toggle-indicator {
-  background: #ffffff;
-  color: #080808;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.08),
-    0 3px 8px rgba(0, 0, 0, 0.08);
+  transform: translateX(2.12rem);
 }
 
 .theme-toggle:focus-visible {
@@ -751,38 +751,32 @@ a:focus-visible {
 
 .hero-copy {
   position: relative;
+  z-index: 1;
+  max-width: 52rem;
 }
 
 .hero-visual {
   position: relative;
   isolation: isolate;
+  width: min(100%, 24rem);
+  margin-inline: auto;
 }
 
 .hero-visual::before {
   content: "";
-
   position: absolute;
-  inset: -20%;
-
+  inset: -18%;
   z-index: -1;
-
-  background:
-    radial-gradient(
-      circle at center,
-      color-mix(
-        in srgb,
-        var(--accent) 7%,
-        transparent
-      ),
-      transparent 52%
-    );
-
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--accent) 7%, transparent),
+    transparent 52%
+  );
   animation: visual-breathe 8s ease-in-out infinite;
 }
 
 .hero-name-line {
   display: block;
-
   transition: color 400ms ease;
 }
 
@@ -792,7 +786,6 @@ a:focus-visible {
 
 .hero-meta {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -800,10 +793,8 @@ a:focus-visible {
 
 .hero-meta::before {
   content: "";
-
   width: 2.5rem;
   height: 1px;
-
   background: var(--accent);
 }
 
@@ -1011,13 +1002,52 @@ a:focus-visible {
   transform: scaleY(1);
 }
 
+.about-copy {
+  max-width: 31rem;
+}
+
+.about-copy p {
+  font-size: 0.68rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.about-copy p + p {
+  margin-top: 1rem;
+}
+
+.about-direction {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-direction::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-direction:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .capability-row {
   position: relative;
-
+  display: grid;
+  grid-template-columns: 2rem minmax(7rem, 0.35fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
   border-top: 1px solid var(--border);
-
+  padding-block: 1.15rem;
   transition:
-    padding-left 350ms ease,
+    padding-inline 350ms ease,
     border-color 350ms ease,
     background-color 350ms ease;
 }
@@ -1028,36 +1058,52 @@ a:focus-visible {
 
 .capability-row::before {
   content: "";
-
   position: absolute;
-  top: 0;
-  bottom: 0;
+  inset-block: 0;
   left: 0;
-
   width: 2px;
-
   background: var(--accent);
-
   transform: scaleY(0);
   transform-origin: bottom;
-
   transition: transform 350ms ease;
 }
 
 .capability-row:hover {
-  padding-left: 0.75rem;
-
+  padding-inline: 0.75rem;
   border-color: var(--foreground);
-
   background: color-mix(
     in srgb,
-    var(--surface) 70%,
+    var(--surface) 55%,
     transparent
   );
 }
 
 .capability-row:hover::before {
   transform: scaleY(1);
+}
+
+.capability-row svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: var(--muted);
+  transition: color 250ms ease;
+}
+
+.capability-row:hover svg {
+  color: var(--accent);
+}
+
+.capability-row h3 {
+  font-size: 0.78rem;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+}
+
+.capability-row p {
+  max-width: 38rem;
+  font-size: 0.58rem;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .signal-line {
@@ -1147,7 +1193,7 @@ a:focus-visible {
 }
 
 .project-slide {
-  flex: 0 0 clamp(18rem, 25vw, 24rem);
+  flex: 0 0 clamp(20rem, 27vw, 28rem);
   min-width: 0;
   scroll-snap-align: start;
 }
@@ -1311,39 +1357,25 @@ a:focus-visible {
 }
 
 .project-card-description {
-  max-width: 25rem;
-
+  max-width: 27rem;
   margin-top: 0.7rem;
-
-  font-size: 0.62rem;
-
+  font-size: 0.64rem;
   line-height: 1.6;
-
   color: var(--muted);
 }
 
 .project-card-footer {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   margin-top: 0.9rem;
-
   border-top: 1px solid var(--border);
-
   padding-top: 0.65rem;
-
   font-family: var(--font-geist-mono), monospace;
-
   font-size: 0.43rem;
-
   line-height: 1;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
-
   color: var(--muted);
 }
 
@@ -1575,44 +1607,91 @@ a:focus-visible {
 
 .experience-row {
   display: grid;
-
-  grid-template-columns:
-    1fr
-    1.3fr
-    0.8fr;
-
+  grid-template-columns: minmax(10rem, 1fr) minmax(14rem, 1.3fr) minmax(5rem, 0.8fr);
   align-items: center;
-
-  gap: 1rem;
-
+  gap: 1.5rem;
   border-bottom: 1px solid var(--border);
+  padding-block: 1.15rem;
+  font-size: 0.78rem;
+  transition:
+    padding-inline 300ms ease,
+    background-color 300ms ease;
+}
 
-  padding-block: 1.25rem;
-
-  font-size: 0.82rem;
+.experience-row:hover {
+  padding-inline: 0.6rem;
+  background: color-mix(
+    in srgb,
+    var(--surface) 45%,
+    transparent
+  );
 }
 
 .experience-row > div:nth-child(2) {
-  font-size: 0.64rem;
-
+  font-size: 0.62rem;
   color: var(--muted);
 }
 
 .experience-row > div:nth-child(3) {
   font-family: var(--font-geist-mono), monospace;
-
-  font-size: 0.48rem;
-
+  font-size: 0.46rem;
   letter-spacing: 0.1em;
-
-  text-transform: uppercase;
-
   text-align: right;
-
+  text-transform: uppercase;
   color: var(--muted);
 }
 
+.education-card {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 1.15rem;
+  transition:
+    border-color 300ms ease,
+    background-color 300ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.education-card:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--foreground) 35%,
+    var(--border)
+  );
+  background: var(--surface-raised);
+  transform: translateY(-3px);
+}
+
+.education-card-label {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.43rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.education-card h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 450;
+  letter-spacing: -0.035em;
+}
+
+.education-card p {
+  max-width: 24rem;
+  margin-top: 0.55rem;
+  font-size: 0.62rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.contact-section {
+  position: relative;
+}
+
 .contact-heading {
+  max-width: 28rem;
   transition: color 400ms ease;
 }
 
@@ -1620,7 +1699,27 @@ a:focus-visible {
   color: var(--accent);
 }
 
+.contact-description {
+  max-width: 42rem;
+  margin-top: 0.85rem;
+  font-size: 0.64rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
 .contact-email {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.68rem;
+  letter-spacing: -0.01em;
   position: relative;
 }
 
@@ -1647,6 +1746,8 @@ a:focus-visible {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+
 
 .project-brand,
 .project-back {
@@ -2183,13 +2284,11 @@ a:focus-visible {
 
   .display-title {
     font-size: clamp(3.2rem, 17vw, 5.5rem);
-
     letter-spacing: -0.07em;
   }
 
   .section-title {
     max-width: 18ch;
-
     font-size: clamp(2rem, 10vw, 3.25rem);
   }
 
@@ -2199,6 +2298,27 @@ a:focus-visible {
 
   .nav-shell {
     min-height: 2.75rem;
+  }
+
+  .hero-visual {
+    width: min(100%, 20rem);
+  }
+
+  .experience-row {
+    padding-block: 1rem;
+  }
+
+  .capability-row {
+    grid-template-columns: 1.5rem 1fr;
+    gap: 0.7rem;
+  }
+
+  .capability-row p {
+    grid-column: 2;
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
   }
 
   .hero-meta::before {
@@ -2219,17 +2339,13 @@ a:focus-visible {
 
   .work-heading-copy {
     max-width: 24rem;
-
     margin-top: 0.75rem;
-
     font-size: 0.62rem;
   }
 
   .project-carousel {
     gap: 0.7rem;
-
     margin-top: 1.1rem;
-
     padding-right: 1rem;
     padding-left: 1rem;
   }
@@ -2275,7 +2391,6 @@ a:focus-visible {
   .project-visual-label {
     font-size: 0.38rem;
   }
-}
 
   .capability-row,
   .experience-row {
@@ -2295,15 +2410,8 @@ a:focus-visible {
   }
 
   .project-hero {
-    width: min(
-      calc(100% - 2rem),
-      34rem
-    );
-
-    padding-block:
-      4rem
-      2.75rem;
-
+    width: min(calc(100% - 2rem), 34rem);
+    padding-block: 4rem 2.75rem;
     text-align: center;
   }
 
@@ -2317,23 +2425,18 @@ a:focus-visible {
 
   .project-hero h1 {
     font-size: clamp(3rem, 15vw, 5rem);
-
     line-height: 0.9;
   }
 
   .project-lede {
     max-width: 31rem;
-
     margin-inline: auto;
-
     font-size: 0.95rem;
   }
 
   .project-case-hero-image {
     width: min(100%, 52rem);
-
     aspect-ratio: 16 / 8;
-
     margin-top: 2rem;
   }
 
@@ -2341,10 +2444,7 @@ a:focus-visible {
   .project-story,
   .project-gallery-section,
   .project-navigation {
-    width: min(
-      calc(100% - 2rem),
-      34rem
-    );
+    width: min(calc(100% - 2rem), 34rem);
   }
 
   .project-overview {
@@ -2353,13 +2453,9 @@ a:focus-visible {
 
   .project-overview-grid {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     gap: 2.25rem;
-
     margin-top: 2rem;
   }
 
@@ -2387,19 +2483,14 @@ a:focus-visible {
 
   .project-story-list {
     width: min(100%, 31rem);
-
     margin-inline: auto;
   }
 
   .project-story-row {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     gap: 0.7rem;
-
     padding-block: 1.4rem;
   }
 
@@ -2417,25 +2508,21 @@ a:focus-visible {
 
   .project-gallery {
     grid-template-columns: 1fr;
-
     width: min(100%, 22rem);
   }
 
   .project-gallery-feature {
     grid-column: auto;
-
     aspect-ratio: 16 / 10;
   }
 
   .project-gallery-portrait {
     width: min(100%, 15rem);
-
     margin-inline: auto;
   }
 
   .project-navigation {
     grid-template-columns: 1fr;
-
     width: min(100%, 22rem);
   }
 
@@ -2444,24 +2531,17 @@ a:focus-visible {
   }
 
   .project-footer {
-    width: min(
-      calc(100% - 2rem),
-      34rem
-    );
-
+    width: min(calc(100% - 2rem), 34rem);
     flex-direction: column;
-
     align-items: center;
-
     gap: 0.5rem;
-
     text-align: center;
   }
 
   .project-carousel {
     margin-inline: 0;
   }
-
+}
 
 @media (max-width: 420px) {
   .project-slide {
@@ -2483,10 +2563,16 @@ a:focus-visible {
   *::after {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
-
     scroll-behavior: auto !important;
-
     transition-duration: 1ms !important;
+  }
+
+  .site-atmosphere,
+  .hero-visual::before,
+  .about-glow,
+  .signal-line::after,
+  .project-route-line {
+    animation: none !important;
   }
 
   .project-route-line {

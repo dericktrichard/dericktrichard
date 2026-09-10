@@ -350,32 +350,19 @@ export default function Home() {
                 </div>
 
                 <div className="mt-9 grid gap-3 md:grid-cols-2">
-                  <div className="border border-border bg-surface p-5">
-                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
-                      Education
-                    </div>
-
-                    <h3 className="mt-4 text-lg tracking-tight">
-                      B.Sc. Computer Technology
-                    </h3>
-
-                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
-                      Jomo Kenyatta University of Agriculture and Technology
+                  <div className="education-card">
+                    <span className="education-card-label">Education</span>
+                    <h3>B.Sc. Computer Technology</h3>
+                    <p>
+                      Jomo Kenyatta University of Agriculture and Technology.
                     </p>
                   </div>
-
-                  <div className="border border-border bg-surface p-5">
-                    <div className="font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted">
-                      Foundation
-                    </div>
-
-                    <h3 className="mt-4 text-lg tracking-tight">
-                      Software · Data · AI
-                    </h3>
-
-                    <p className="mt-2 text-[0.78rem] leading-6 text-muted">
-                      A technical foundation now moving deeper into analytics
-                      and intelligent systems.
+                  
+                  <div className="education-card">
+                    <span className="education-card-label">Foundation</span>
+                    <h3>Software · Data · AI</h3>
+                    <p>
+                      A technical foundation now moving deeper into analytics and intelligent systems.
                     </p>
                   </div>
                 </div>
@@ -509,10 +496,11 @@ export default function Home() {
                     <div className="about-image-frame relative aspect-square overflow-hidden bg-surface">
                       <Image
                         src="/projects/seia/seiaprofile.jpeg"
-                        alt="SEIA application profile interface"
-                        fill
-                        sizes="(max-width: 767px) 30vw, 14vw"
-                        className="object-cover"
+                        alt="SEIA application profile"
+                        width={1000}
+                        height={1000}
+                        sizes="(max-width: 767px) 90vw, 18vw"
+                        className="h-full w-full object-cover"
                       />
                     </div>
 
