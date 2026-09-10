@@ -310,10 +310,11 @@ export default function Home() {
               <Image
                 src="/profile/profileimage.png"
                 alt="Derick Richard"
-                fill
+                width={600}
+                height={900}
                 priority
-                sizes="(max-width: 767px) min(70vw, 18rem), (max-width: 1279px) 30vw, 24rem"
-                className="object-cover"
+                sizes="(max-width: 767px) 90vw, 19rem"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>

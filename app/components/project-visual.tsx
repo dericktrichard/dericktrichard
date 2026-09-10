@@ -19,9 +19,7 @@ function SentryVisual() {
         </div>
       </div>
 
-      <div className="project-visual-index">
-        01 / SYSTEM
-      </div>
+      <div className="project-visual-index">01 / SYSTEM</div>
     </div>
   );
 }
@@ -66,13 +64,8 @@ function PsoVisual() {
         </g>
       </svg>
 
-      <div className="project-visual-label">
-        Route optimisation
-      </div>
-
-      <div className="project-visual-index">
-        02 / PSO
-      </div>
+      <div className="project-visual-label">Route optimisation</div>
+      <div className="project-visual-index">02 / PSO</div>
     </div>
   );
 }
@@ -84,9 +77,10 @@ function SeiaVisual() {
         <Image
           src="/projects/seia/seiahome.jpeg"
           alt="SEIA application home feed"
-          fill
+          width={1600}
+          height={1000}
           sizes="(max-width: 767px) 72vw, 28vw"
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
 
@@ -94,15 +88,14 @@ function SeiaVisual() {
         <Image
           src="/projects/seia/seiaprofile.jpeg"
           alt="SEIA application profile"
-          fill
+          width={1000}
+          height={1000}
           sizes="(max-width: 767px) 18vw, 10vw"
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
 
-      <div className="project-visual-index">
-        03 / SEIA
-      </div>
+      <div className="project-visual-index">03 / SEIA</div>
     </div>
   );
 }
@@ -112,13 +105,12 @@ export function ProjectVisual({
 }: {
   visual: ProjectVisual;
 }) {
-  if (visual === "sentry") {
-    return <SentryVisual />;
+  switch (visual) {
+    case "sentry":
+      return <SentryVisual />;
+    case "pso":
+      return <PsoVisual />;
+    case "seia":
+      return <SeiaVisual />;
   }
-
-  if (visual === "pso") {
-    return <PsoVisual />;
-  }
-
-  return <SeiaVisual />;
 }

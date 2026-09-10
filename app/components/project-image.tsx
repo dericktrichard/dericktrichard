@@ -16,10 +16,11 @@ export function ProjectImage({
       <Image
         src={src}
         alt={alt}
-        fill
+        width={1600}
+        height={1000}
         priority={priority}
         sizes="(max-width: 1024px) 100vw, 65vw"
-        className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
+        className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025]"
       />
 
       <div
