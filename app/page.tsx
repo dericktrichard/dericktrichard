@@ -235,11 +235,11 @@ export default function Home() {
               </div>
 
               <p className="portfolio-reveal portfolio-reveal-delay-2 mt-4 max-w-2xl text-[clamp(0.82rem,1.25vw,1.05rem)] leading-[1.4] tracking-[-0.02em]">
-                Software developer building practical systems where
+                A Software developer building practical systems where
                 <span className="text-accent"> DATA</span>,
                 <span className="text-accent"> SOFTWARE</span> and
                 <span className="text-accent"> INTELLIGENT TECHNOLOGY</span>{" "}
-                meet.
+                bridge.
               </p>
 
               <div className="portfolio-reveal portfolio-reveal-delay-3 mt-4 flex flex-wrap gap-2 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-muted">
@@ -323,7 +323,7 @@ export default function Home() {
         {/* EXPERIENCE */}
         <section id="experience" className="px-page py-section">
           <div className="mx-auto max-w-[118rem]">
-            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
+            <div className="grid gap-5 lg:grid-cols-[0.35fr_1fr] lg:gap-10">
               <div>
                 <div className="eyebrow">Experience</div>
               </div>
@@ -354,7 +354,8 @@ export default function Home() {
                     <span className="education-card-label">Education</span>
                     <h3>B.Sc. Computer Technology</h3>
                     <p>
-                      Jomo Kenyatta University of Agriculture and Technology.
+                      Jomo Kenyatta University of Agriculture and Technology.<br />
+                      Second Upper Division
                     </p>
                   </div>
                   
@@ -362,7 +363,7 @@ export default function Home() {
                     <span className="education-card-label">Foundation</span>
                     <h3>Software · Data · AI</h3>
                     <p>
-                      A technical foundation now moving deeper into analytics and intelligent systems.
+                      A technical foundation by moving deeper into analytics and intelligent systems.
                     </p>
                   </div>
                 </div>
@@ -376,14 +377,11 @@ export default function Home() {
           <div className="mx-auto max-w-[118rem]">
             <div className="work-heading">
               <div>
-                <div className="eyebrow">Work</div>
-
-                <h2 className="section-title mt-4">PROJECTS</h2>
+                <div className="eyebrow">PROJECTS</div>
               </div>
 
               <p className="work-heading-copy">
-                Systems built across software, optimisation, data and applied
-                AI.
+                Systems built across software, optimisation, data and applied AI.
               </p>
             </div>
 
@@ -393,32 +391,19 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="project-carousel-footer">
-              <span>Scroll to explore</span>
-
-              <div className="project-carousel-rule" aria-hidden="true">
-                <span />
-              </div>
-
-              <span>{projects.length} selected</span>
-            </div>
           </div>
         </section>
 
         {/* CAPABILITIES */}
         <section className="px-page py-section">
           <div className="mx-auto max-w-[118rem]">
-            <div className="grid gap-10 lg:grid-cols-[0.35fr_1fr] lg:gap-16">
+            <div className="grid gap-5 lg:grid-cols-[0.35fr_1fr] lg:gap-10">
               <div>
                 <div className="eyebrow">Capabilities</div>
               </div>
 
               <div>
-                <h2 className="section-title max-w-3xl">
-                  One technical foundation. Several ways to use it.
-                </h2>
-
-                <div className="mt-9">
+                <div className="mt-2">
                   {capabilities.map((capability) => {
                     const Icon = capability.icon;
 
@@ -454,14 +439,9 @@ export default function Home() {
               <div className="eyebrow">About</div>
             </div>
 
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+            <div className="grid gap-5 lg:grid-cols-[1.5fr_1.5fr] lg:items-end">
               <div>
-                <h2 className="section-title max-w-4xl">
-                  I build with technology. I am increasingly interested in what
-                  the data can tell us.
-                </h2>
-
-                <div className="mt-7 grid max-w-4xl gap-5 text-[0.72rem] leading-6 text-muted md:grid-cols-2 md:gap-9">
+                <div className="mt-2 grid max-w-4xl gap-2 text-[1.00rem] leading-7 text-muted md:grid-cols-2 md:gap-5">
                   <p>
                     My foundation is in Computer Technology, where software,
                     systems and problem solving meet. That has taken me across
@@ -528,18 +508,18 @@ export default function Home() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="px-page pb-12 pt-section">
+        <section id="contact" className="px-page pb-15 pt-section">
           <div className="mx-auto max-w-[118rem]">
             <div className="border-t border-border pt-8">
-              <div className="grid gap-10 lg:grid-cols-[1fr_.45fr] lg:items-end">
+              <div className="grid gap-4 lg:grid-cols-[1fr_.45fr] lg:items-end">
                 <div>
                   <div className="eyebrow">Contact</div>
 
-                  <h2 className="section-title contact-heading mt-5 max-w-4xl">
+                  <h2 className="section-title mt-3 max-w-4xl">
                     Let&apos;s talk about the work.
                   </h2>
 
-                  <p className="mt-5 max-w-xl text-[0.72rem] leading-6 text-muted">
+                  <p className="mt-4 max-w-xl text-[0.72rem] leading-6 text-muted">
                     Whether it is a software project, data problem,
                     collaboration or opportunity, I am open to meaningful
                     technical conversations.
@@ -547,7 +527,7 @@ export default function Home() {
 
                   <a
                     href="mailto:dericktrichard@gmail.com"
-                    className="contact-email mt-7 inline-flex text-[0.82rem] tracking-[-0.02em]"
+                    className="contact-email mt-4 inline-flex text-[0.82rem] tracking-[-0.02em]"
                   >
                     dericktrichard@gmail.com
                   </a>
@@ -596,9 +576,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="signal-line mt-12" />
+              <div className="signal-line mt-5" />
 
-              <footer className="flex flex-col gap-3 py-5 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:items-center sm:justify-between">
+              <footer className="flex flex-col gap-2 py-3 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-muted sm:flex-row sm:items-center sm:justify-between">
                 <span>Derick Richard Tsumah</span>
                 <span>Computer Technology / Data / Software</span>
                 <span>© {new Date().getFullYear()}</span>
