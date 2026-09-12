@@ -29,15 +29,15 @@
   --surface: #10100e;
   --surface-raised: #181815;
 
-  --accent: #d8ff62;
+  --accent: #985ff4;
   --accent-foreground: #111407;
 
-  --focus-ring: #d8ff62;
+  --focus-ring: #f43c5a;
 
   --toggle-track: #151512;
   --toggle-indicator: #080808;
   --toggle-indicator-foreground: #eeeeea;
-  --toggle-inactive: #85857c;
+  --toggle-inactive: #61615d;
 
   --atmosphere-line: rgba(238, 238, 234, 0.045);
   --atmosphere-glow: rgba(216, 255, 98, 0.06);
@@ -49,13 +49,13 @@
 
   --background: #f7f7f3;
   --foreground: #161614;
-  --muted: #67675f;
+  --muted: #3a3a36;
   --border: #d8d8cf;
 
   --surface: #ffffff;
   --surface-raised: #edede7;
 
-  --accent: #1f4f3a;
+  --accent: #4fd198;
   --accent-foreground: #f7f7f3;
 
   --focus-ring: #1f4f3a;
@@ -63,7 +63,7 @@
   --toggle-track: #e7e7df;
   --toggle-indicator: #ffffff;
   --toggle-indicator-foreground: #161614;
-  --toggle-inactive: #74746b;
+  --toggle-inactive: #4c4c47;
 
   --atmosphere-line: rgba(22, 22, 20, 0.045);
   --atmosphere-glow: rgba(31, 79, 58, 0.045);
@@ -91,11 +91,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body,
-button,
-input,
-textarea,
-select {
+body, button, input, textarea, select {
   font-family: var(--font-instrument), Arial, Helvetica, sans-serif;
 }
 
@@ -104,8 +100,7 @@ a {
   text-decoration: none;
 }
 
-button,
-a {
+button, a {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -114,7 +109,7 @@ button {
 }
 
 section[id] {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 4rem;
 }
 
 ::selection {
@@ -122,8 +117,7 @@ section[id] {
   color: var(--background);
 }
 
-button:focus-visible,
-a:focus-visible {
+button:focus-visible, a:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 5px;
 }
@@ -327,9 +321,7 @@ a:focus-visible {
   background: var(--accent);
 }
 
-.action-primary,
-.action-secondary,
-.social-link {
+.action-primary, .action-secondary, .social-link {
   transition:
     background-color 300ms ease,
     border-color 300ms ease,
@@ -780,10 +772,6 @@ a:focus-visible {
   transition: color 400ms ease;
 }
 
-.hero-name-line:hover {
-  color: var(--accent);
-}
-
 .hero-meta {
   position: relative;
   display: inline-flex;
@@ -816,12 +804,9 @@ a:focus-visible {
 
 .hero-scroll::after {
   content: "";
-
   width: 3rem;
   height: 1px;
-
   background: var(--border);
-
   transition:
     width 300ms ease,
     background-color 300ms ease;
