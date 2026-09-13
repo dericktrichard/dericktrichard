@@ -229,7 +229,7 @@ export default function Home() {
                   id="hero-title"
                   className="display-title portfolio-reveal portfolio-reveal-delay-1 max-w-4xl"
                 >
-                  <span className="hero-name-line">Derick</span>
+                  <span className="hero-name-line">Derick T</span>
                   <span className="hero-name-line text-muted">RICHARD</span>
                 </h1>
               </div>
