@@ -92,7 +92,7 @@ export default async function ProjectPage({
             {project.category} · {project.year}
           </div>
 
-          <h2>{project.title}</h2>
+          <h1>{project.title}</h1>
 
           <p className="project-lede">{project.description}</p>
 
