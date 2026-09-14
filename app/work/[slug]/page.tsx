@@ -92,7 +92,7 @@ export default async function ProjectPage({
             {project.category} · {project.year}
           </div>
 
-          <h1>{project.title}</h1>
+          <h2>{project.title}</h2>
 
           <p className="project-lede">{project.description}</p>
 
@@ -103,7 +103,7 @@ export default async function ProjectPage({
                 alt={project.hero.alt}
                 fill
                 priority
-                sizes="(max-width: 767px) 92vw, 52rem"
+                sizes="(max-width: 767px) 80vw, 42rem"
                 className="object-contain"
               />
             </div>
@@ -200,7 +200,7 @@ export default async function ProjectPage({
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 767px) 90vw, min(56rem, 78vw)"
+                  sizes="(max-width: 767px) 80vw, min(42rem, 68vw)"
                   className="object-contain"
                 />
               </figure>
