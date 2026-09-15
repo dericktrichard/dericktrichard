@@ -1360,31 +1360,19 @@ button:focus-visible, a:focus-visible {
 
 .project-card:hover .project-card-footer-action {
   color: var(--accent);
-
   transform: translateX(0.12rem);
 }
 
 .project-visual {
   position: relative;
-
   width: 100%;
   height: 100%;
-
   overflow: hidden;
 }
 
-.project-visual-sentry {
-  display: grid;
-  place-items: center;
-
-  background: #08b5cf;
-
-  color: white;
-}
 
 .project-sentry-mark {
   text-align: center;
-
   transform: translateY(-1px);
 }
 
@@ -1392,16 +1380,11 @@ button:focus-visible, a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 0.14rem;
-
   width: 3.3rem;
   height: 2.15rem;
-
   margin-inline: auto;
-
   border-radius: 0.5rem;
-
   background: white;
 }
 
