@@ -1391,19 +1391,14 @@ button:focus-visible, a:focus-visible {
 .project-sentry-icon span {
   width: 0.35rem;
   height: 0.9rem;
-
   border-radius: 999px;
-
   background: #111;
 }
 
 .project-sentry-name {
   margin-top: 0.65rem;
-
   font-size: 1.05rem;
-
   font-weight: 500;
-
   letter-spacing: -0.04em;
 }
 
@@ -2264,10 +2259,6 @@ button:focus-visible, a:focus-visible {
     padding-left: 1rem;
   }
 
-  .project-slide {
-    flex-basis: min(17rem, 76vw);
-  }
-
   .project-card-media {
     aspect-ratio: 1.42 / 1;
   }
@@ -2466,10 +2457,6 @@ button:focus-visible, a:focus-visible {
 }
 
 @media (max-width: 420px) {
-  .project-slide {
-    flex-basis: 72vw;
-  }
-
   .project-card-description {
     max-width: 19rem;
   }
